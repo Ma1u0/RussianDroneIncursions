@@ -1,0 +1,38 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* Header */
+header {
+  background-color: #1a1a1a;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+}
+
+/* Container */
+#container {
+  display: flex;
+  height: calc(100% - 60px); /* subtract header height */
+}
+
+/* Sidebar */
+#sidebar {
+  width: 300px;
+  background-color: #f4f4f4;
+  padding: 15px;
+  overflow-y: auto;
+}
+
+/* Map */
+#map {
+  flex: 1;
+}
