@@ -1,11 +1,10 @@
 // Initialize the map centered over Europe
 var map = L.map('map').setView([54.5, 10], 5);
 
-// Stamen Toner Lite tiles
-L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png', {
-    attribution: 'Map tiles by <a href="http://stamen.com/">Stamen Design</a>, &copy; OpenStreetMap contributors',
-    subdomains: 'abcd',
-    maxZoom: 20
+// Default OpenStreetMap tiles
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+    maxZoom: 19
 }).addTo(map);
 
 // Example marker
