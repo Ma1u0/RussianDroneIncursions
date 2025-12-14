@@ -274,6 +274,41 @@ L.marker([52.24350, 5.63432], { icon: droneYellow })
    N O R W A Y
 ========================= */
 
+L.marker([60.19315, 11.09682], { icon: droneYellow })
+  .addTo(map)
+  .bindPopup(`
+   <b> <a href="https://www.dr.dk/nyheder/indland/droner-set-over-koebenhavns-lufthavn" target="_blank">Oslo Gardermoen Airport, Norway 🇳🇴</a> </b> <br>
+    <br>
+    <b>Date/Time:</b> 23 Sep 2025, 00:30-04:00 <br>
+    <b>Type:</b> Drone sightings / airport closure <br>
+    <b>Details:</b>  The airspace was closed following a drone sighting; a few hours earlier two foreign nationals were arrested for operating a different drone <br>
+Authorities do not rule out a connection to the incident in Copenhagen <br>
+  `);
+
+L.marker([69.05483, 18.54067], { icon: droneYellow })
+  .addTo(map)
+  .bindPopup(`
+   <b> <a href="https://www.nrk.no/norge/fly-omdirigert-etter-droneobservasjon-1.17589626" target="_blank">Bardufoss Airport, Norway 🇳🇴</a> </b> <br>
+    <br>
+    <b>Date/Time:</b> 28 Sep 2025 <br>
+    <b>Type:</b> Drone sightings / airport closure <br>
+    <b>Details:</b> Two Chinese nationals have been arrested for flying a drone<br>
+    <br>
+    The area is surrounded by fjords, a popular tourist attraction
+  `);
+
+L.marker([65.45869, 12.21145], { icon: droneYellow })
+  .addTo(map)
+  .bindPopup(`
+   <b> <a href="https://www.nrk.no/nordland/politiet-om-droner-ved-bronnoysund-lufthavn_-_-sa-fem-seks-stykker-1.17590655#:~:text=Nyhetssenter%20Nordland-,Politiet%20om%20droner%20ved%20Brønnøysund%20lufthavn%3A%20–%20Så%20fem%2Dseks,vei%20fra%20Bodø%20til%20Trondheim." target="_blank">Brønnøysund Airport, Norway 🇳🇴</a> </b> <br>
+    <br>
+    <b>Date/Time:</b> 29 Sep 2025, 20:18 <br>
+    <b>Type:</b> Drone sightings / airport closure <br>
+    <b>Details:</b> The police confirms the drone sighting and say that it has seen five to six drone in the sky. The police lost sight of the drones <br>
+    <br>
+    The police considers the Ørland incident, which was reported at the same time, as a likely false alarm
+  `);
+
 /* =========================
    P O L A N D
 ========================= */
