@@ -142,7 +142,6 @@ L.marker([53.42829, -6.24727], { icon: droneYellow })
     <b>Type:</b> Drone sighting<br>
     <b>Details:</b> Four military grade drones flew near the airport when Zelensky´s plane was supposed to land ; the lights were on therefore authorities assume that it was only supposed to be a disruption of the landing<br>
     The drones were likely launched near Howth, from where they first flew above a naval vessel and then towards the location where Zelensky´s plane was supposed to be but his plane was slightly ahead of schedule <br>
-    Invoking NATO Article 4 was considered but ultimately Denmark decided against it <br>
     <br>
     Authorities believe the drones were quadcopters
   `);
