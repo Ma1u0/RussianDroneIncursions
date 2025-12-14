@@ -170,6 +170,26 @@ L.marker([53.42829, -6.24727], { icon: droneYellow })
    S P A I N
 ========================= */
 
+L.marker([39.55322, 2.72903], { icon: droneYellow })
+  .addTo(map)
+  .bindPopup(`
+   <b> <a href="https://www.ondacero.es/emisoras/baleares/mallorca/noticias/aeropuerto-palma-opera-normalidad-cerrar-este-domingo-trafico-aereo-avistamiento-dron_2025102068f5e4db76c80d35b5f0b84e.html" target="_blank">Palma de Mallorca Airport, Spain 🇪🇸</a> </b> <br>
+    <br>
+    <b>Date/Time:</b> 19 Oct 2025, 19:00 - ~19:30 <br>
+    <b>Type:</b> Drone sighting / airport closure <br>
+    <b>Details:</b> Multiple pilots reported a drone which resulted in  the airport being closed; police unsuccessfully used their own drone to localize the drone<br>
+  `);
+
+L.marker([38.28757, -0.55278], { icon: droneYellow })
+  .addTo(map)
+  .bindPopup(`
+   <b> <a href="https://elpais.com/espana/comunidad-valenciana/2025-10-28/un-dron-cerca-de-la-pista-de-despegue-obliga-a-cerrar-el-aeropuerto-de-alicante-durante-casi-dos-horas.html" target="_blank">Alicante Airport, Spain 🇪🇸</a> </b> <br>
+    <br>
+    <b>Date/Time:</b> 27 Oct 2025, 20:53 - ~23:00 <br>
+    <b>Type:</b> Drone sighting / airport closure <br>
+    <b>Details:</b> A drone has been seen sighted near the runway; the perpatrator hasn't been found <br>
+  `);
+
 /* =========================
    S W E D E N
 ========================= */
