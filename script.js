@@ -64,7 +64,7 @@ const balloonBlue = createIcon("blue_balloon.png");
 L.marker([55.6181, 12.6508], { icon: droneOrange })
   .addTo(map)
   .bindPopup(`
-   <b> <a href="https://www.osw.waw.pl/en/publikacje/analyses/2025-09-22/russian-fighter-jets-estonian-airspace-a-test-natos-unity" target="_blank">Copenhagen Airport, Denmark 🇩🇰</a> </b> <br>
+   <b> <a href="https://news.sky.com/story/flights-suspended-at-copenhagen-airport-after-drone-sightings-13436457?utm_source=chatgpt.com" target="_blank">Copenhagen Airport, Denmark 🇩🇰</a> </b> <br>
     <br>
     <b>Date/Time:</b> 22 Sep 2025; air traffic halted ~20:26–00:30<br>
     <b>Type:</b> Drone sighting<br>
