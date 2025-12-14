@@ -85,7 +85,7 @@ L.marker([55.6181, 12.6508], { icon: droneOrange })
 L.marker([59.81732, 26.36000], { icon: jetRed })
   .addTo(map)
   .bindPopup(`
-    <b> Vaindloo Island 🇪🇪 </b> <br>
+    <b> <a href="https://www.osw.waw.pl/en/publikacje/analyses/2025-09-22/russian-fighter-jets-estonian-airspace-a-test-natos-unity" target="_blank">Vaindloo Island 🇪🇪</a> </b> <br>
     <br>
     <b>Date/Time:</b> 19 Sep 2025, entered airspace between 09:58 and 10:10 <br>
     <b>Type:</b> Airspace incursion by Russian fighter jets <br>
