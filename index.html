@@ -2,118 +2,99 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Drone Incursions Map</title>
-
-<!-- Leaflet CSS -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leaflet Map with Legend</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 <style>
-html, body { height: 100%; margin: 0; }
-#map { width: 100%; height: 100vh; }
+  /* Map container fills viewport */
+  #map {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+  }
 
-/* Legend styling */
-#map-legend {
+  /* Legend styling */
+  #map-legend {
     position: absolute;
-    bottom: 10px;
+    top: 10px;
     right: 10px;
     background: white;
     padding: 10px;
-    font-family: sans-serif;
-    font-size: 14px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    z-index: 1000;
-    min-width: 40px;
-    transition: all 0.3s;
-}
-
-#legend-content {
-    max-height: 0;
-    overflow: hidden;
-    margin-top: 5px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+    z-index: 1000; /* above map */
+    pointer-events: auto;
     transition: max-height 0.3s ease;
-}
+    overflow: hidden;
+    max-height: 40px; /* collapsed height */
+  }
 
-#legend-toggle {
-    background: none;
-    border: none;
+  #map-legend.expanded {
+    max-height: 400px; /* expanded height */
+  }
+
+  #legend-toggle {
     cursor: pointer;
-    font-size: 16px;
-    transition: transform 0.3s;
-}
-
-#map-legend.expanded {
-    width: 500px;
-    padding: 20px;
-}
-
-#map-legend.expanded #legend-content {
-    max-height: 500px;
-}
-
-#map-legend.expanded #legend-toggle {
-    transform: rotate(90deg);
-}
-
-#map-legend ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-#map-legend li {
-    margin: 4px 0;
-    display: flex;
-    align-items: center;
-}
-
-#map-legend img {
-    margin-right: 6px;
-}
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
 </style>
 </head>
 <body>
 
-<!-- Legend container -->
-<div id="map-legend">
-    <button id="legend-toggle">▸</button>
-    <div id="legend-content">
-        <h4>Legend</h4>
-        <ul>
-            <li><img src="icons/red_drone.png" width="24" height="24"> High-risk drone</li>
-            <li><img src="icons/orange_drone.png" width="24" height="24"> Medium-risk drone</li>
-            <li><img src="icons/yellow_drone.png" width="24" height="24"> Low-risk drone</li>
-            <li><img src="icons/green_drone.png" width="24" height="24"> Minor drone</li>
-            <li><img src="icons/blue_drone.png" width="24" height="24"> Observed drone</li>
-        </ul>
-        <p style="color:red;font-weight:bold;">Legend is working AGAIN!</p>
-    </div>
-</div>
-
 <div id="map"></div>
 
-<!-- Leaflet JS -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<div id="map-legend">
+  <span id="legend-toggle">Toggle Legend</span>
+  <div id="legend-content">
+    <p>Red Drone: High alert</p>
+    <p>Orange Drone: Medium alert</p>
+    <p>Yellow Drone: Low alert</p>
+    <p>Green Drone: Observed</p>
+  </div>
+</div>
 
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
-// Initialize Leaflet map
-const map = L.map('map').setView([0, 0], 2);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19
-}).addTo(map);
+  // Initialize map
+  var map = L.map('map').setView([54.5, 10], 5);
 
-// Legend toggle
-const legend = document.getElementById('map-legend');
-const toggle = document.getElementById('legend-toggle');
-toggle.addEventListener('click', () => {
+  // Add OpenStreetMap tiles
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  // Legend toggle
+  const legend = document.getElementById('map-legend');
+  const toggleBtn = document.getElementById('legend-toggle');
+
+  toggleBtn.addEventListener('click', () => {
     legend.classList.toggle('expanded');
-});
+    map.invalidateSize(); // refresh map after toggle
+  });
 
-// Example marker (you can remove this if your script.js adds markers)
-L.marker([0, 0]).addTo(map).bindPopup('Test Marker');
+  // Icon factory
+  function createIcon(file) {
+    return L.icon({
+      iconUrl: `icons/${file}`,
+      iconSize: [32, 32],
+      iconAnchor: [18, 36],
+      popupAnchor: [0, -30]
+    });
+  }
+
+  // Example markers
+  const droneYellow = createIcon("yellow_drone.png");
+  const droneRed = createIcon("red_drone.png");
+
+  L.marker([49.74390, 15.33811], { icon: droneYellow }).addTo(map)
+    .bindPopup("<b>Czech Republic 🇨🇿</b><br>Drone sighting example.");
+
+  L.marker([55.60913, 12.65098], { icon: droneRed }).addTo(map)
+    .bindPopup("<b>Copenhagen, Denmark 🇩🇰</b><br>Drone sighting example.");
 </script>
-
-<!-- Your script.js (with all your markers) -->
-<script src="script.js?v=1"></script>
 
 </body>
 </html>
