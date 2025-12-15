@@ -88,20 +88,153 @@ L.marker([49.74390, 15.33811], { icon: droneYellow })
    D E N M A R K
 ========================= */
 
-L.marker([55.6181, 12.6508], { icon: droneOrange })
+
+L.marker([55.60913, 12.65098], { icon: droneOrange })
   .addTo(map)
   .bindPopup(`
-   <b> <a href="https://news.sky.com/story/flights-suspended-at-copenhagen-airport-after-drone-sightings-13436457" target="_blank">Copenhagen Airport, Denmark 🇩🇰</a> </b> <br>
+   <b> <a href="https://news.sky.com/story/flights-suspended-at-copenhagen-airport-after-drone-sightings-13436457?" target="_blank">Copenhagen Airport, Denmark 🇩🇰</a> </b> <br>
     <br>
-    <b>Date/Time:</b> 22 Sep 2025; air traffic halted ~20:26–00:30<br>
+    <b>Date/Time:</b> 22 Sep 2025, flights halted ~20:26–00:30 <br>
     <b>Type:</b> Drone sighting / airport closure <br>
-    <b>Details:</b> Copenhagen Airport was temporarily closed after 2–3 drones were spotted.<br>
-    Danish authorities stated the drones were operated by a "capable actor". <br>
+    <b>Details:</b> Copenhagen Airport was temporarily closed after 2–3 drones were spotted. Danish authorities said that the drones were operated by a 'capable actor' <br>
+    <br>  
+    Invoking NATO Article 4 was considered but ultimately Denmark decided against it <br>  
+     <br>    
+    <a href="https://www.npr.org/2025/10/03/nx-s1-5561990/denmark-russia-drones-hybrid-war" target="_blank"> The Danish intelligence service considers these drones to be Russian </a>
+  `);
+
+L.marker([57.08644, 9.86798], { icon: droneOrange })
+  .addTo(map)
+  .bindPopup(`
+    <b> Aalborg Airport, Denmark 🇩🇰 </b><br><br>
+    
+    <b> <a href="https://www.dr.dk/nyheder/indland/droner-set-over-koebenhavns-lufthavn?focusId=10234855" target="_blank">Incident 1</a> </b> <br>
+   <b> Date/Time:</b> 24 Sep 2025,, 21:45 -  ~3:00; airport closed ~23:16- ~03:15 <br>
+   <b> Type: </b> Drone sightings / airport closure <br>
+   <b> Details:</b> Multiple unidentified drones reported on the area of the Aalborg airport; authorities claim the pattern was similar to the accident in Copenhagen <br>
+    <br><br>
+    
+  <b> <a href="https://www.dr.dk/nyheder/indland/droner-set-over-koebenhavns-lufthavn?focusId=10242688" target="_blank">Incident 2</a> </b> <br>
+   <b> Date/Time:</b> 25 Sep 2025, ~23:40–00:35 <br>
+   <b> Type: </b> <b> Suspected false alarm* </b>/ airport closure <br>
+   <b> Details:</b> Air traffic was halted following a suspected drone observation by the police. Police wasn't able to confirm their sighting <br>
+    <br> <br>
+    
+   <b> <a href="https://www.npr.org/2025/10/03/nx-s1-5561990/denmark-russia-drones-hybrid-war)" target="_blank">Incident 3</a> </b> <br>
+   <b> Date/Time:</b> 14 Nov 2025, 22:10–23:00 <br>
+   <b> Type: </b> Drone sighting / airport closure <br>
+   <b> Details:</b>  Air traffic halted due to possible drone sighting <br>
     <br>
-    Invoking NATO Article 4 was considered but ultimately Denmark decided against it <br>
+    <hr>
+    <i>  Aalborg airport is both a publicly and militarily used airport </i>
+  `);
+
+L.marker([56.29746, 9.12463], { icon: droneOrange })
+  .addTo(map)
+  .bindPopup(`
+   <b> <a href="https://www.france24.com/en/europe/20250927-new-drones-sighted-over-denmark-s-largest-military-base" target="_blank">Karup Air Base, Denmark 🇩🇰</a> </b> <br>
     <br>
-    The Danish intelligence service considers these drones to be Russian
-   <a href="https://www.npr.org/2025/10/03/nx-s1-5561990/denmark-russia-drones-hybrid-war" target="_blank">Source</a>
+    <b>Date/Time:</b> 24 Sep 2025, 20:15 <br>
+    <b>Type:</b> Drone sighting / airspace closure <br>
+    <b>Details:</b> One or two drones were seen over the air base. The drones weren't taken down. <br>
+    <br>   
+    <a href="https://www.npr.org/2025/10/03/nx-s1-5561990/denmark-russia-drones-hybrid-war" target="_blank"> The Danish intelligence service considers these drones to be Russian </a> <br> 
+    <br> 
+    <i> All Danish military helicopters, airspace surveillance, the flight school, support functions, and the defence command are stationed in Karup <br>
+     <br>
+    Karup Air Base shares one runway with the Midtjylland civilian airport </i>
+  `);
+
+L.marker([55.52572, 8.55197], { icon: droneOrange })
+  .addTo(map)
+  .bindPopup(`
+   <b> <a href="https://www.dr.dk/nyheder/indland/droner-set-over-koebenhavns-lufthavn" target="_blank">Esbjerg Airport, Denmark 🇩🇰</a> </b> <br>
+    <br>
+    <b>Date/Time:</b> 24 Sep 2025, sightings ~22:00 - 02:08 <br>
+    <b>Type:</b> Drone sighting <br>
+    <b>Details:</b> Drones were reported in the airspace of Esbjerg Airport. Number of drones remain unknown; airport wasn't closed due to no more flights being scheduled until the morning <br>
+    <br>   
+    <a href="https://www.npr.org/2025/10/03/nx-s1-5561990/denmark-russia-drones-hybrid-war" target="_blank"> The Danish intelligence service considers these drones to be Russian </a>
+  `);
+
+L.marker([55.22555, 9.26393], { icon: droneOrange })
+  .addTo(map)
+  .bindPopup(`
+   <b> <a href="https://www.dr.dk/nyheder/indland/droner-set-over-koebenhavns-lufthavn" target="_blank">Skrydstrup Air Base, Denmark 🇩🇰</a> </b> <br>
+    <br>
+    <b>Date/Time:</b>  24 Sep 2025, sightings ~22:00 - 02:08 <br>
+    <b>Type:</b> Drone sighting <br>
+    <b>Details:</b> Drones were reported over the Skrydstrup Air Base. Number of drones remains unknown <br>
+    <br>   
+    <a href="https://www.npr.org/2025/10/03/nx-s1-5561990/denmark-russia-drones-hybrid-war" target="_blank"> The Danish intelligence service considers these drones to be Russian </a>
+  `);
+
+L.marker([54.96255, 9.79265], { icon: droneOrange })
+  .addTo(map)
+  .bindPopup(`
+   <b> <a href="https://www.dr.dk/nyheder/indland/droner-set-over-koebenhavns-lufthavn" target="_blank">Sønderborg Airport, Denmark 🇩🇰</a> </b> <br>
+    <br>
+    <b>Date/Time:</b>  24 Sep 2025, sightings ~22:00 - 02:08 <br>
+    <b>Type:</b> Drone sighting <br>
+    <b>Details:</b> Drones were reported in the airspace near Sønderborg Airport. Number of drones remain unknown; airport wasn't closed due to no more flights scheduled until the morning <br>
+    <br>   
+    <a href="https://www.npr.org/2025/10/03/nx-s1-5561990/denmark-russia-drones-hybrid-war" target="_blank"> The Danish intelligence service considers these drones to be Russian </a>
+  `);
+
+L.marker([56.34824, 8.60471], { icon: droneOrange })
+  .addTo(map)
+  .bindPopup(`
+   <b> <a href="https://www.kristeligt-dagblad.dk/drone-spottet-ved-kaserne-i-holstebro" target="_blank">Jutland Dragoon Regiment barracks in Holstebro, Denmark 🇩🇰</a> </b> <br>
+    <br>
+    <b>Date/Time:</b> 24 Sep 2025, sightings ~03:00 <br>
+    <b>Type:</b> Drone sighting <br>
+    <b>Details:</b> The police confirmed that a drone was flying here after receiving reports of an unidentified drone <br>
+    <br>   
+    <a href="https://www.npr.org/2025/10/03/nx-s1-5561990/denmark-russia-drones-hybrid-war" target="_blank"> The Danish intelligence service considers these drones to be Russian </a>
+  `);
+
+L.marker([56.00270, 2.81447], { icon: droneGreen })
+  .addTo(map)
+  .bindPopup(`
+   <b> <a href="https://www.reuters.com/world/europe/denmark-reopens-airports-after-drone-disruption-2025-09-25/" target="_blank">North Sea 🇪🇺 / 🇩🇰</a> </b> <br>
+    <br>
+    <b>Date/Time:</b> 24 Sep 2025 <br>
+    <b>Type:</b> Drone sighting <br>
+    <b>Details:</b> Danish civil rescue company "Esvagt" reports that it has possibly observed multiple drones flying over the North Sea, near oil fields <br>
+    <br>   
+  `);
+
+L.marker([55.73502, 9.12933], { icon: droneGreen })
+  .addTo(map)
+  .bindPopup(`
+   <b> <a href="https://www.politico.eu/article/denmark-closes-airports-after-wave-drone-sightings-across-country/" target="_blank">Billund Airport, Denmark 🇩🇰</a> </b> <br>
+    <br>
+    <b>Date/Time:</b> 25 Sep 2025, Reported 02:21, airport closed 04:40 - ~05:50 <br>
+    <b>Type:</b> Drone sighting / airspace closure <br>
+    <b>Details:</b> The police was unable to verify the drone sighting <br>
+    <br>   
+  `);
+
+L.marker([55.06486, 14.75415], { icon: droneGreen })
+  .addTo(map)
+  .bindPopup(`
+   <b> <a href="https://www.dr.dk/nyheder/indland/droner-set-over-koebenhavns-lufthavn?focusId=10235614" target="_blank">Rønne Airport, Denmark 🇩🇰</a> </b> <br>
+    <br>
+    <b>Date/Time:</b> 25 Sep 2025, ~05:49 <br>
+    <b>Type:</b> Drone sighting <br>
+    <b>Details:</b> Police confirmed that they have seen blinking lights over the airport; the police doesn't deny or confirm if those lights were a drone <br>
+    <br>   
+  `);
+
+L.marker([55.33158, 11.13699], { icon: droneGreen })
+  .addTo(map)
+  .bindPopup(`
+   <b> <a href="https://x.com/ssj_lfpoliti/status/1971177421018890658?s=61" target="_blank">Port of Korsør, Denmark 🇩🇰</a> </b> <br>
+    <br>
+    <b>Date/Time:</b> 25 Sep 2025 <br>
+    <b>Type:</b> Drone sighting <br>
+    <b>Details:</b> The police responded to reports of drones over the Port of Korsør; no further information published since then <br>
+    <br>   
   `);
 
 /* =========================
@@ -194,7 +327,8 @@ L.marker([48.304611, -4.50851], { icon: droneYellow })
     <b>Type:</b> Drone sighting^ <br>
     <b>Details:</b> Five drones were spotted over the base with the help of anti drone systems; the stationed battalion shot at the drones  <br>
     <br>
-    Île Longue is home to French nuclear ballistic missile submarines
+    <hr>
+    <i> Île Longue is home to French nuclear ballistic missile submarines </i>
   `);
 
 /* =========================
@@ -249,7 +383,7 @@ L.marker([54.08870, 12.14049], { icon: droneYellow })
     <b>Details:</b> Coordinated and connected drones were spotted over the overseas port and the marine command in Rostock <br>
     The state parliament and the coastal power station in Kiel also had drone sightings <br>
      <br>    
-    <a href="https://www.n-tv.de/politik/Bundeswehr-widerspricht-Bericht-ueber-Drohnensichtungen-article26071379.html" target="_blank"> Spiegel also reported a sighting over the Bundeswehr location in Sanitz, Mecklenburg-Vorpommern which was denied by the Bundeswehr </a>
+    <a href="https://www.n-tv.de/politik/Bundeswehr-widerspricht-Bericht-ueber-Drohnensichtungen-article26071379.html" target="_blank"> Spiegel also reported a sighting over the Bundeswehr location in Sanitz, Mecklenburg-Vorpommern, which was denied by the Bundeswehr </a>
   `);
 
 
