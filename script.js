@@ -14,12 +14,7 @@ const legend = document.getElementById('map-legend');
 const toggleBtn = document.getElementById('legend-toggle');
 
 toggleBtn.addEventListener('click', () => {
-    legend.classList.toggle('collapsed');
-    if (legend.classList.contains('collapsed')) {
-        toggleBtn.textContent = 'Legend ▸';
-    } else {
-        toggleBtn.textContent = 'Legend ▾';
-    }
+    legend.classList.toggle('expanded');
 });
 
 /* =========================
