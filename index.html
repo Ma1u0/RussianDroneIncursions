@@ -22,7 +22,7 @@
     bottom: 10px;
     right: 10px;
     background: white;
-    padding: 20px;
+    padding: 10px;
     /*border: 1px solid #ccc;
     border-radius: 6px;*/
     font-family: sans-serif;
@@ -89,6 +89,12 @@
 </div>
 
     <div id="map"></div>
+
+    #map-legend.expanded {
+    width: 350px;      /* how wide the legend should be when opened */
+    max-height: 70vh;  /* how tall it can grow (70% of viewport height) */
+    padding: 20px;     /* more space inside the box */
+}
 
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
