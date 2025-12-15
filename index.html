@@ -23,19 +23,25 @@
         right: 10px;
         background: white;
         padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 6px;
         font-family: sans-serif;
         font-size: 14px;
         box-shadow: 0 2px 6px rgba(0,0,0,0.3);
         z-index: 1000;
-        width: 50px; /* small width when collapsed */
-        transition: all 0.3s ease;
+        transition: all 0.3s;
       }
 
       #legend-content {
         display: none;
         margin-top: 5px;
+      }
+
+      /* Button styling */
+      #legend-toggle {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        transition: transform 0.3s;
       }
 
       /* Expanded legend */
@@ -47,15 +53,6 @@
 
       #map-legend.expanded #legend-content {
         display: block;
-      }
-
-      /* Button styling */
-      #legend-toggle {
-        background: none;
-        border: none;
-        cursor: pointer;
-        font-size: 20px;
-        transition: transform 0.3s;
       }
 
       #map-legend.expanded #legend-toggle {
@@ -81,34 +78,41 @@
 </head>
 <body>
 
-<!-- Legend container -->
-<div id="map-legend">
-    <button id="legend-toggle">▸</button>
-    <div id="legend-content">
-        <h4>Legend</h4>
-        <ul>
-            <li><img src="icons/red_drone.png" width="24" height="24"> High-risk drone</li>
-            <li><img src="icons/orange_drone.png" width="24" height="24"> Medium-risk drone</li>
-            <li><img src="icons/yellow_drone.png" width="24" height="24"> Low-risk drone</li>
-            <li><img src="icons/green_drone.png" width="24" height="24"> Minor drone</li>
-            <li><img src="icons/blue_drone.png" width="24" height="24"> Observed drone</li>
-        </ul>
+    <!-- Legend container -->
+    <div id="map-legend">
+        <button id="legend-toggle">▸</button>
+        <div id="legend-content">
+            <h4>Legend</h4>
+            <ul>
+                <li><img src="icons/red_drone.png" width="24" height="24"> High-risk drone</li>
+                <li><img src="icons/orange_drone.png" width="24" height="24"> Medium-risk drone</li>
+                <li><img src="icons/yellow_drone.png" width="24" height="24"> Low-risk drone</li>
+                <li><img src="icons/green_drone.png" width="24" height="24"> Minor drone</li>
+                <li><img src="icons/blue_drone.png" width="24" height="24"> Observed drone</li>
+            </ul>
+        </div>
     </div>
-</div>
 
-<div id="map"></div>
+    <div id="map"></div>
 
-<!-- Leaflet JS -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script>
-  // JS to toggle legend
-  const legend = document.getElementById('map-legend');
-  const toggleBtn = document.getElementById('legend-toggle');
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-  toggleBtn.addEventListener('click', () => {
-      legend.classList.toggle('expanded');
-  });
-</script>
+    <!-- Legend toggle script -->
+    <script>
+      const legend = document.getElementById('map-legend');
+      const toggle = document.getElementById('legend-toggle');
+
+      toggle.addEventListener('click', () => {
+        legend.classList.toggle('expanded');
+      });
+
+      // Initialize Leaflet map
+      const map = L.map('map').setView([0, 0], 2);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19
+      }).addTo(map);
+    </script>
 
 </body>
 </html>
