@@ -1,3 +1,6 @@
+// Ensure JS runs after DOM loaded
+window.onload = function() {
+
 // Initialize the map centered over Europe
 var map = L.map('map').setView([54.5, 10], 5);
 
