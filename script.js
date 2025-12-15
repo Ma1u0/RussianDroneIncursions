@@ -17,6 +17,10 @@ toggleBtn.addEventListener('click', () => {
     legend.classList.toggle('expanded');
 });
 
+toggleBtn.addEventListener('click', () => {
+    legend.classList.toggle('expanded');
+});
+
 /* =========================
    ICON FACTORY
 ========================= */
