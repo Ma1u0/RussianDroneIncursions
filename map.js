@@ -14,6 +14,81 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const incidents = [
+/* =========================
+     B E L G I U M
+ ========================= */
+
+/* =========================
+     C Z E C H I A 
+ ========================= */
+
+/* =========================
+     D E N M A R K
+ ========================= */
+
+/* =========================
+    E S T O N I A
+ ========================= */
+
+/* =========================
+     F I N L A N D
+ ========================= */
+
+/* =========================
+     F R A N C E
+ ========================= */
+
+/* =========================
+     G E R M A N Y
+ ========================= */
+
+/* =========================
+     I R E L A N D
+ ========================= */
+
+const dublinMarker = L.marker([53.42829, -6.24727], { icon: icons.droneYellow })
+  .addTo(map)
+  .bindPopup(`
+    <b><a href="https://www.thejournal.ie/drones-dublin-ireland-hybrid-warfare-russia-6893104-Dec2025/" target="_blank">
+      Dublin Airport, Ireland 🇮🇪
+    </a></b><br>
+    <b>Date/Time:</b> 01 Dec 2025, shortly before 23:00<br>
+    <b>Type:</b> Drone sighting<br>
+    <b>Details:</b> Four military grade drones flew near the airport when Zelensky´s plane was supposed to land; the lights were on so authorities assume it was only a disruption of the landing.<br>
+    The drones were likely launched near Howth, first flew above a naval vessel, then towards the location where Zelensky´s plane was supposed to be, but his plane was slightly ahead of schedule.<br>
+    Authorities believe the drones were quadcopters.
+  `);
+
+// Add metadata for filtering
+dublinMarker.meta = {
+  type: 'drone',
+  risk: 'yellow'  // corresponds to 🟡 in your filters
+};
+    
+/* =========================
+     L I T H U A N I A
+ ========================= */
+
+/* =========================
+     N E T H E R L A N D S 
+ ========================= */
+
+/* =========================
+     N O R W A Y
+ ========================= */  
+
+/* =========================
+     P O L A N D
+ ========================= */
+
+ /* =========================
+     R O M A N I A
+ ========================= */   
+
+/* =========================
+    S P A I N
+ ========================= */
+
     { lat: 49.7439, lng: 15.3381, icon: icons.droneYellow, type:'drone', risk:'yellow', location:'others', date:'2025-09-10', details:"Czech drone sightings.", link:"#", country:"Czech 🇨🇿" },
     { lat: 40.7128, lng: -74.0060, icon: icons.jetRed, type:'jet', risk:'red', location:'others', date:'2025-10-12', details:"Jet over US airspace.", link:"#", country:"USA 🇺🇸" },
     { lat: 35.6895, lng: 139.6917, icon: icons.balloonBlue, type:'balloon', risk:'blue', location:'others', date:'2025-11-05', details:"Balloon over Japan.", link:"#", country:"Japan 🇯🇵" },
