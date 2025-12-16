@@ -45,25 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
 /* =========================
      I R E L A N D
  ========================= */
-
-const dublinMarker = L.marker([53.42829, -6.24727], { icon: icons.droneYellow })
-  .addTo(map)
-  .bindPopup(`
-    <b><a href="https://www.thejournal.ie/drones-dublin-ireland-hybrid-warfare-russia-6893104-Dec2025/" target="_blank">
-      Dublin Airport, Ireland 🇮🇪
-    </a></b><br>
-    <b>Date/Time:</b> 01 Dec 2025, shortly before 23:00<br>
-    <b>Type:</b> Drone sighting<br>
-    <b>Details:</b> Four military grade drones flew near the airport when Zelensky´s plane was supposed to land; the lights were on so authorities assume it was only a disruption of the landing.<br>
-    The drones were likely launched near Howth, first flew above a naval vessel, then towards the location where Zelensky´s plane was supposed to be, but his plane was slightly ahead of schedule.<br>
-    Authorities believe the drones were quadcopters.
-  `);
-
-// Add metadata for filtering
-dublinMarker.meta = {
-  type: 'drone',
-  risk: 'yellow'  // corresponds to 🟡 in your filters
-};
     
 /* =========================
      L I T H U A N I A
