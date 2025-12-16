@@ -1,48 +1,30 @@
-// ====== MAP INIT ======
+// Initialize map
 const map = L.map('map').setView([20, 0], 2);
+
+// Add OpenStreetMap tiles
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19
 }).addTo(map);
 
-// ====== ICONS ======
-const icons = {
-  drone: L.icon({ iconUrl: 'icons/red_drone.png', iconSize: [32,32] }),
-  jet: L.icon({ iconUrl: 'icons/red_jet.png', iconSize: [32,32] }),
-  balloon: L.icon({ iconUrl: 'icons/red_balloon.png', iconSize: [32,32] })
-};
-
-// ====== EXAMPLE MARKERS ======
-const incidents = [
-  { lat: 51, lng: 0, type: 'drone', risk: 'red', text: 'Drone over UK' },
-  { lat: 40, lng: -74, type: 'jet', risk: 'orange', text: 'Jet intercept USA' },
-  { lat: 35, lng: 139, type: 'balloon', risk: 'blue', text: 'Balloon Japan' }
-];
-
-const markers = [];
-
-incidents.forEach(i => {
-  const marker = L.marker([i.lat, i.lng], { icon: icons[i.type] })
-    .bindPopup(i.text)
-    .addTo(map);
-
-  marker.meta = i;
-  markers.push(marker);
-});
-
-// ====== FILTER LOGIC ======
-function applyFilters() {
-  markers.forEach(m => {
-    const typeMatch =
-      (m.meta.type === 'drone' && document.getElementById('filter-drone').checked) ||
-      (m.meta.type === 'jet' && document.getElementById('filter-jet').checked) ||
-      (m.meta.type === 'balloon' && document.getElementById('filter-balloon').checked);
-
-    if (typeMatch) {
-      map.addLayer(m);
-    } else {
-      map.removeLayer(m);
-    }
+// Icon factory
+function icon(file) {
+  return L.icon({
+    iconUrl: `icons/${file}`,
+    iconSize: [32,32],
+    iconAnchor: [16,32]
   });
 }
 
-document.querySelectorAll('#filters-panel input').forEach(i => i.addEventListener('change', applyFilters));
+// Example markers
+const markers = [
+  { lat: 51, lng: 0, type: 'drone', icon: 'red_drone.png', popup: 'Drone over UK' },
+  { lat: 40, lng: -74, type: 'jet', icon: 'red_jet.png', popup: 'Jet intercept USA' },
+  { lat: 35, lng: 139, type: 'balloon', icon: 'red_balloon.png', popup: 'Balloon Japan' }
+];
+
+// Add markers
+markers.forEach(m => {
+  L.marker([m.lat, m.lng], { icon: icon(m.icon) })
+    .bindPopup(m.popup)
+    .addTo(map);
+});
