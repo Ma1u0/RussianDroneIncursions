@@ -130,45 +130,47 @@ html, body {
     <div class="filter-columns">
       <!-- Column 1 -->
       <div class="filter-column">
-        <label><input type="checkbox" checked onchange="applyFilters()">
-          <img src="icons/uav.png"> Drones
-        </label>
-         <label><input type="checkbox" checked onchange="applyFilters()">
-          <img src="icons/fighter-plane.png"> Jets
-        </label>
-        <label><input type="checkbox" checked onchange="applyFilters()">
-          <img src="icons/balloon.png"> Balloons
-        </label>
+     <label><input type="checkbox" value="drone" checked onchange="applyFilters()">
+  <img src="icons/uav.png"> Drones
+</label>
+
+<label><input type="checkbox" value="jet" checked onchange="applyFilters()">
+  <img src="icons/fighter-plane.png"> Jets
+</label>
+
+<label><input type="checkbox" value="balloon" checked onchange="applyFilters()">
+  <img src="icons/balloon.png"> Balloons
+</label>
       </div>
 
       <!-- Column 2 -->
       <div class="filter-column">
-        <label><input type="checkbox" checked onchange="applyFilters()">
+        <label><input type="checkbox" value="red" checked onchange="applyFilters()">
           🔴 Incidents confirmed to be caused by Russia
         </label>
-        <label><input type="checkbox" checked onchange="applyFilters()">
+        <label><input type="checkbox" value="orange" checked onchange="applyFilters()">
           🟠 Incidents suspected to be caused by Russia
         </label>
-        <label><input type="checkbox" checked onchange="applyFilters()">
+        <label><input type="checkbox" value="yellow" checked onchange="applyFilters()">
           🟡 Actor unknown
         </label>
-        <label><input type="checkbox" checked onchange="applyFilters()">
+        <label><input type="checkbox" value="green" checked onchange="applyFilters()">
           🟢 Unverified sightings
         </label>
-        <label><input type="checkbox" checked onchange="applyFilters()">
+        <label><input type="checkbox" value="blue" checked onchange="applyFilters()">
           🔵 Safety zone breaches
         </label>
       </div>
 
       <!-- Column 3 -->
       <div class="filter-column">
-        <label><input type="checkbox" checked onchange="applyFilters()">
+        <label><input type="checkbox" value="airports" checked onchange="applyFilters()">
           <img src="icons/airport.png"> Airports
         </label>
-        <label><input type="checkbox" checked onchange="applyFilters()">
+        <label><input type="checkbox" value="militarybases" checked onchange="applyFilters()">
           <img src="icons/soldier.png"> Military bases
         </label>
-        <label><input type="checkbox" checked onchange="applyFilters()">
+        <label><input type="checkbox" value="others" checked onchange="applyFilters()">
           <img src="icons/dot-square.png"> Others
         </label>
       </div>
@@ -238,13 +240,6 @@ const icons = {
   balloonGreen: L.icon({ iconUrl: 'icons/green_balloon.png', iconSize: [28, 28] }),
   balloonBlue: L.icon({ iconUrl: 'icons/blue_balloon.png', iconSize: [28, 28] }),
 };
-  
-/* MAP — THIS IS THE IMPORTANT PART */
-const map = L.map('map').setView([20, 0], 2);
-
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19
-}).addTo(map);
 
 /* FILTERS (DUMMY FOR NOW) */
 function applyFilters() {
