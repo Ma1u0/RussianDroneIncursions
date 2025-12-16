@@ -79,6 +79,17 @@ html, body {
 .legend-row {
   margin-bottom: 8px; /* adjust spacing as needed */
 }
+
+.filter-row-group {
+  display: flex;
+  gap: 10px; /* space between items */
+  margin-bottom: 8px;
+}
+
+.filter-row-group .filter-row {
+  display: flex;
+  align-items: center;
+}
   
 </style>
 </head>
@@ -94,6 +105,7 @@ html, body {
     <button onclick="togglePanel('filters')">▾</button>
   </div>
 <div class="panel-content">
+  <div class="filter-row-group">
   <div class="filter-row">
     <input type="checkbox" checked onchange="applyFilters()">
     <img src="icons/uav.png"> Drones
@@ -106,7 +118,7 @@ html, body {
     <input type="checkbox" checked onchange="applyFilters()">
     <img src="icons/balloon.png"> Balloons
   </div>
-
+</div>
  <div class="filter-row">
     <input type="checkbox" checked onchange="applyFilters()">
   🔴 Confirmed Russian
