@@ -8,14 +8,13 @@ html, body {
   width: 100%;
 }
 
-/* PANEL BASE */
 .panel {
   position: absolute;
   background: white;
   border-radius: 6px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.3);
   font-family: sans-serif;
-  width: 220px;
+  width: 180px;
   z-index: 1000;
 }
 
@@ -23,7 +22,7 @@ html, body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 10px;
+  padding: 6px 10px;
   font-weight: bold;
   cursor: pointer;
   background: #f0f0f0;
@@ -37,33 +36,18 @@ html, body {
 }
 
 .panel-content {
-  padding: 8px 10px;
+  padding: 6px 10px;
 }
 
 .collapsed .panel-content {
   display: none;
 }
 
-/* PANEL POSITION */
-#filters {
-  top: 10px;
-  left: 10px;
-}
+#filters { top: 10px; left: 10px; }
+#legend { top: 10px; right: 10px; }
 
-#legend {
-  top: 10px;
-  right: 10px;
-}
-
-/* FILTER & LEGEND ROWS */
 .filter-row, .legend-row {
   display: flex;
   align-items: center;
   margin-bottom: 6px;
-}
-
-.filter-row img, .legend-row img {
-  width: 20px;
-  height: 20px;
-  margin-right: 6px;
 }
