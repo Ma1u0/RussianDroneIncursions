@@ -339,18 +339,37 @@ document.addEventListener('DOMContentLoaded', () => {
   const markers = [];
 
   // Add markers to cluster
-  incidents.forEach(i => {
-    const marker = L.marker([i.lat, i.lng], { icon: i.icon })
-      .bindPopup(`
-        <b><a href="${i.link}" target="_blank">${i.country}</a></b><br>
-        <b>Date/Time:</b> ${i.date}<br>
-        <b>Type:</b> ${i.popupType}<br>
-        <b>Details:</b> ${i.details}
-      `);
-    marker.meta = i;
-    markers.push(marker);
-    markerCluster.addLayer(marker); // Add to cluster instead of map
-  });
+ incidents.forEach(i => {
+
+  const popupHtml = `
+    <b>${i.country}</b><br><br>
+
+    ${
+      Array.isArray(i.incidents)
+        ? i.incidents.map((inc, idx) => `
+            <b>Incident ${idx + 1}</b><br>
+            <b>Type:</b> ${inc.popupType}<br>
+            <b>Date:</b> ${inc.date}<br>
+            <b>Details:</b> ${inc.details}<br>
+            <a href="${inc.link}" target="_blank">Source</a>
+            <hr>
+          `).join('')
+        : `
+            <b>Type:</b> ${i.popupType}<br>
+            <b>Date:</b> ${i.date}<br>
+            <b>Details:</b> ${i.details}<br>
+            <a href="${i.link}" target="_blank">Source</a>
+          `
+    }
+  `;
+
+  const marker = L.marker([i.lat, i.lng], { icon: i.icon })
+    .bindPopup(popupHtml);
+
+  marker.meta = i;
+  markers.push(marker);
+  markerCluster.addLayer(marker);
+});
 
   // Filter function
   function applyFilters() {
