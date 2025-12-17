@@ -164,6 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
     details: "Five drones were spotted over the base with the help of anti drone systems; the stationed battalion shot at the drones <br><br> Île Longue is home to French nuclear ballistic missile submarines",
     link: "https://www.lemonde.fr/societe/article/2025/11/12/mulhouse-enquete-ouverte-apres-le-survol-d-un-convoi-de-chars-leclerc_6653159_3224.html",
     country: "Bergerac, France 🇫🇷"
+    note: "Île Longue is home to French nuclear ballistic missile submarines",
   },
     
      /* =========================
@@ -206,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
   year: '2025',
   country: "Volkel Air Base, Netherlands 🇳🇱",
 
-  note: "Volkel Air Base is believed to host U.S. B61 nuclear weapons under NATO nuclear sharing arrangements.",
+  note: "Volkel is home to Dutch F-35 jets and US nuclear weapons",
 
   incidents: [
     {
