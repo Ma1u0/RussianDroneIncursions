@@ -36,13 +36,20 @@ document.addEventListener('DOMContentLoaded', () => {
    /* =========================
        I R E L A N D
     ========================= */
-    {lat: 53.42829, lng: -6.24727, 
-     icon: icons.droneYellow, 
-     type:'drone', risk:'yellow', place:'airport', year:'2025', 
-     date:'01 Dec 2025, shortly before 23:00',
-     details:"Four military grade drones flew near the airport when Zelensky´s plane was supposed to land; lights were on, authorities assume it was a disruption of the landing. Drones likely launched near Howth, flew above naval vessel, then towards plane.", 
-     link:"https://www.thejournal.ie/drones-dublin-ireland-hybrid-warfare-russia-6893104-Dec2025/", 
-     country:"Dublin Airport, Ireland 🇮🇪" },
+    {
+    lat: 53.42829,
+    lng: -6.24727,
+    icon: icons.droneYellow,
+    type: 'drone',      // used for filtering
+    risk: 'yellow',
+    place: 'airport',
+    year: '2025',
+    popupType: 'Drone sighting ', // shown in popup
+    date: '01 Dec 2025, shortly before 23:00',
+    details: "Four military grade drones flew near the airport when Zelensky´s plane was supposed to land ; the lights were on therefore authorities assume that it was only supposed to be a disruption of the landing",
+    link: "https://www.thejournal.ie/drones-dublin-ireland-hybrid-warfare-russia-6893104-Dec2025/",
+    country: "Dublin Airport, Ireland 🇮🇪"
+  },
 
     { lat: 40.7128, lng: -74.0060, icon: icons.jetRed, type:'jet', risk:'red', place:'others',year:'2026', date:'2025-10-12', details:"Jet over US airspace.", link:"#", country:"USA 🇺🇸" },
     { lat: 35.6895, lng: 139.6917, icon: icons.balloonBlue, type:'balloon', risk:'blue', place:'others',year:'2026', date:'2025-11-05', details:"Balloon over Japan.", link:"#", country:"Japan 🇯🇵" },
