@@ -21,6 +21,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Incident data
   const incidents = [
+
+   /* =========================
+       C Z E C H I A
+    ========================= */
+    {lat: 49.74390, lng: 15.33811, 
+     icon: icons.droneYellow, 
+     type:'drone', risk:'yellow', place:'other', year:'2025', 
+     date:'2025',
+     details:" On September 10th, the Czech army reported an growing number of drone sightings over it's military bases; no further details were provided", 
+     link:"https://www.reuters.com/business/aerospace-defense/russias-suspected-hybrid-war-puts-european-air-defences-test-2025-11-05/", 
+     country:"Czechia 🇨🇿" },
+    
+   /* =========================
+       I R E L A N D
+    ========================= */
     {lat: 53.42829, lng: -6.24727, 
      icon: icons.droneYellow, 
      type:'drone', risk:'yellow', place:'airport', year:'2025', 
