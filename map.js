@@ -219,6 +219,8 @@ document.addEventListener('DOMContentLoaded', () => {
       details: "Additional unidentified drones were observed near sensitive infrastructure.",
       link: "https://www.rtl.nl/nieuws/binnenland/artikel/5540368/drones-eindhoven-volkel-tuinman-brekelmans-verjaagd"
     }
+
+    Volkel is one of the two bases which are home to Dutch F-35 jets
   ]
 },
     
