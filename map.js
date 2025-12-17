@@ -59,6 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const showAirports = document.querySelector('#filters input[value="airports"]').checked;
     const showMilitary = document.querySelector('#filters input[value="militarybases"]').checked;
     const showOthers = document.querySelector('#filters input[value="others"]').checked;
+    const show25 = document.querySelector('#filters input[value="2025"]').checked;
+    const show26 = document.querySelector('#filters input[value="2026"]').checked;
 
     markers.forEach(m => {
       const t = m.meta.type;
