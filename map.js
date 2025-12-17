@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
     date: ' 04 Dec 2025, 19:30 ',
     details: "Five drones were spotted over the base with the help of anti drone systems; the stationed battalion shot at the drones <br><br> Île Longue is home to French nuclear ballistic missile submarines",
     link: "https://www.lemonde.fr/societe/article/2025/11/12/mulhouse-enquete-ouverte-apres-le-survol-d-un-convoi-de-chars-leclerc_6653159_3224.html",
-    country: "Bergerac, France 🇫🇷",
+    country: "Île Longue, France 🇫🇷",
     note: "Île Longue is home to French nuclear ballistic missile submarines",
   },
     
