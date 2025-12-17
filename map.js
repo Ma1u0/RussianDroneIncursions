@@ -196,6 +196,32 @@ document.addEventListener('DOMContentLoaded', () => {
         N E T H E R L A N D S
     ========================= */
 
+{
+  lat: 51.65831,
+  lng: 5.69801,
+  icon: icons.droneYellow,
+  type: 'drone',        // used for filtering
+  risk: 'yellow',
+  place: 'militarybase',
+  year: '2025',
+  country: "Volkel Air Base, Netherlands 🇳🇱",
+
+  incidents: [
+    {
+      popupType: 'Drone sighting',
+      date: ' 20 Nov 2025, sightings between 19:00 and 21:00',
+      details: "An unspecified amount of drones was spotted at the Volkel air base and were chased away",
+      link: "https://www.rtl.nl/nieuws/binnenland/artikel/5540368/drones-eindhoven-volkel-tuinman-brekelmans-verjaagd"
+    },
+    {
+      popupType: 'Drone incursion',
+      date: '22 Nov 2025',
+      details: "Additional unidentified drones were observed near sensitive infrastructure.",
+      link: "https://www.rtl.nl/nieuws/binnenland/artikel/5540368/drones-eindhoven-volkel-tuinman-brekelmans-verjaagd"
+    }
+  ]
+}
+    
      /* =========================
        N O R W A Y
     ========================= */
