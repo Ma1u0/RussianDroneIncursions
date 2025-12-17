@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
   icon: icons.droneYellow,
   type: 'drone',        // used for filtering
   risk: 'yellow',
-  place: 'militarybase',
+  place: 'militarybases',
   year: '2025',
   country: "Volkel Air Base, Netherlands 🇳🇱",
 
@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
       link: "https://www.rtl.nl/nieuws/binnenland/artikel/5540368/drones-eindhoven-volkel-tuinman-brekelmans-verjaagd"
     }
   ]
-}
+},
     
      /* =========================
        N O R W A Y
