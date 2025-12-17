@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     place: 'other',
     year: '2025',
     popupType: 'Drone sightings ', // shown in popup
+    date: '2025',
     details: "On September 10th, the Czech army reported an growing number of drone sightings over it's military bases; no further details were provided",
     link: "https://www.reuters.com/business/aerospace-defense/russias-suspected-hybrid-war-puts-european-air-defences-test-2025-11-05/",
     country: "Czech Republic 🇨🇿"
@@ -70,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .bindPopup(`
         <b><a href="${i.link}" target="_blank">${i.country}</a></b><br>
         <b>Date:</b> ${i.date}<br>
-        <b>Type:</b> ${i.type}<br>
+        <b>Type:</b> ${i.popupType}<br>
         <b>Details:</b> ${i.details}
       `);
     marker.meta = i;
