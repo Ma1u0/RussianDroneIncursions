@@ -144,12 +144,12 @@ document.addEventListener('DOMContentLoaded', () => {
     ========================= */
 
    {
-    lat: 42,87107,
-    lng: 34,51879,
+    lat: 42.87107,
+    lng: 34.51879,
     icon: icons.droneYellow,
     type: 'drone',      // used for filtering
     risk: 'yellow',
-    place: 'airport',
+    place: 'other',
     year: '2025',
     popupType: 'Drone incursion ', // shown in popup
     date: '15 Sep 2025',
