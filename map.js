@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
       link: "https://www.rtl.nl/nieuws/binnenland/artikel/5540368/drones-eindhoven-volkel-tuinman-brekelmans-verjaagd"
     }
   ]
-}
+},
     
      /* =========================
        N O R W A Y
