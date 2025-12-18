@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
       date: ' 04 Nov 2025, 20:30',
       details: "Local citizens reported drones over the air base",
       link: "https://www.vrt.be/vrtnws/en/2025/11/05/air-traffic-halted-last-night-due-to-drones-at-brussels-airport/"
-    }
+    },
      {
       popupType: 'Drone sighting',
       date: '06 Nov 2025, evening, before 21:30',
@@ -287,19 +287,19 @@ document.addEventListener('DOMContentLoaded', () => {
       date: '06 Nov 2025, 22:00 - 23:20',
       details: "Air traffic was halted following a drone sighting at the airport",
       link: "https://vrtnws.be/p.Pqn1MwxDy#bGl2ZWJsb2dfaXRlbV8xNzYyNDY5NDc4OTY5"
-    }
+    },
     {
       popupType: 'Drone sighting / airspace closure',
       date: ' 07 Nov 2025, 06:56 - 08:00',
       details: " Air traffic was halted following a drone sighting at the airport",
       link: "https://vrtnws.be/p.Pqn1MwxDy#bGl2ZWJsb2dfaXRlbV8xNzYyNDk3OTEyNzM5"
-    }
+    },
     {
       popupType: 'Drone sighting / airspace closure',
       date: '08 Nov 2025, 19:00 - 19:30',
       details: "Air traffic was halted following a drone sighting at the airport",
       link: "https://vrtnws.be/p.Pqn1MwxDy#bGl2ZWJsb2dfaXRlbV8xNzYyNjI4MzgzMzU1"
-    }
+    },
      {
       popupType: 'Drone sighting / airspace closure',
       date: '09 Nov 2025, 19:30 - 20:25',
