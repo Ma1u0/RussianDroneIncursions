@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     icon: icons.droneYellow,
     type: 'drone',      // used for filtering
     risk: 'yellow',
-    place: 'militarybase',
+    place: 'militarybases',
     year: '2025',
     popupType: 'Drone sighting / drone downed ', // shown in popup
     date: '17 Oct 2025',
@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
     icon: icons.droneYellow,
     type: 'drone',      // used for filtering
     risk: 'yellow',
-    place: 'militarybass',
+    place: 'militarybases',
     year: '2025',
     popupType: 'Drone sighting ', // shown in popup
     date: ' 04 Dec 2025, 19:30 ',
@@ -538,7 +538,7 @@ const popupHtml = (() => {
     const showDrone = document.querySelector('#filters input[value="drone"]').checked;
     const showJet = document.querySelector('#filters input[value="jet"]').checked;
     const showBalloon = document.querySelector('#filters input[value="balloon"]').checked;
-    const showSoldier = document.querySelector('#filters input[value="soldier"]').checked;
+    const showBorder = document.querySelector('#filters input[value="border"]').checked;
     const showRed = document.querySelector('#filters input[value="red"]').checked;
     const showOrange = document.querySelector('#filters input[value="orange"]').checked;
     const showYellow = document.querySelector('#filters input[value="yellow"]').checked;
@@ -556,7 +556,7 @@ const popupHtml = (() => {
       const p = m.meta.place;
       const y = m.meta.year;
 
-      const typeMatch = (t==='drone' && showDrone) || (t==='jet' && showJet) || (t==='balloon' && showBalloon) || (t==='border' && showSoldier);
+      const typeMatch = (t==='drone' && showDrone) || (t==='jet' && showJet) || (t==='balloon' && showBalloon) || (t==='border' && showBorder);
       const riskMatch = (r==='red' && showRed) || (r==='orange' && showOrange) || (r==='yellow' && showYellow) ||
                         (r==='green' && showGreen) || (r==='blue' && showBlue);
       const placeMatch = (p==='airport' && showAirports) || (p==='militarybases' && showMilitary) || (p==='others' && showOthers);
