@@ -41,6 +41,386 @@ document.addEventListener('DOMContentLoaded', () => {
  /* =========================
        B E L G I U M
     ========================= */
+
+ {
+    lat: 50.45731,
+    lng: 6.22138,
+    icon: icons.droneOrange,
+    type: 'drone',      // used for filtering
+    risk: 'orange',
+    place: 'militarybases',
+    year: '2025',
+    popupType: 'Drone sighting ', // shown in popup
+    date: '03 Oct 2025, before 01:45',
+    details: "15 drones were spotted by chance due to the test of anti drone equipment was tested",
+    link: "https://www.vrt.be/vrtnws/en/2025/10/03/drones-spotted-above-belgian-military-bases/",
+    country: "Elsenborn Military Base, Belgium 🇧🇪",
+    note: "The Belgian security service considers the drones in Belgium to be Russian",
+    noteLink: "https://www.vrt.be/vrtnws/en/2025/11/05/belgian-security-services-convinced-russia-is-behind-the-drone-i/"
+  },
+
+    {
+  lat: 50.23922,
+  lng: 5.50552,
+  icon: icons.droneOrange,
+  type: 'drone',        // used for filtering
+  risk: 'orange',
+  place: 'militarybases',
+  year: '2025',
+  country: "Marche-en-Famenne Air Base, Belgium 🇧🇪",
+
+  note: "The Belgian security service considers the drones in Belgium to be Russian",
+  noteLink: "https://www.vrt.be/vrtnws/en/2025/11/05/belgian-security-services-convinced-russia-is-behind-the-drone-i/",
+
+  incidents: [
+    {
+      popupType: 'Drone sighting',
+      date: '25 Oct 2025, evening',
+      details: "Four to five drones, flying above critical areas of the base, were reported by soldiers",
+      link: "https://www.vrt.be/vrtnws/en/2025/10/29/drones-spotted-above-belgian-military-base/"
+    },
+    {
+      popupType: 'Drone sighting',
+      date: '28 Oct 2025',
+      details: "Several drones have been spotted over the air base",
+      link: "https://www.vrt.be/vrtnws/en/2025/10/29/drones-spotted-above-belgian-military-base/"
+    }
+  ]
+},
+
+  {
+  lat: 50.24550,
+  lng: 4.62085,
+  icon: icons.droneOrange,
+  type: 'drone',        // used for filtering
+  risk: 'orange',
+  place: 'militarybases',
+  year: '2025',
+  country: "Florennes Air Base, Belgium 🇧🇪",
+
+  note: "Florennes air base is home to Belgium's F-35 jets <br><br> The Belgian security service considers the drones in Belgium to be Russian",
+  noteLink: "https://www.vrt.be/vrtnws/en/2025/11/05/belgian-security-services-convinced-russia-is-behind-the-drone-i/",
+
+  incidents: [
+    {
+      popupType: 'Drone sighting',
+      date: '30 Oct 2025, 20:30',
+      details: "Employees at the base and local police report seeing drone-like lights",
+      link: "https://www.rtbf.be/article/intrusions-de-drones-dans-l-espace-aerien-suspicion-de-vol-de-drones-a-proximite-de-la-base-aerienne-de-florennes-11627078"
+    },
+    {
+      popupType: 'Drone sighting',
+      date: ' 04 Nov 2025, 20:30',
+      details: "Local citizens reported drones over the air base",
+      link: "https://www.vrt.be/vrtnws/en/2025/11/05/air-traffic-halted-last-night-due-to-drones-at-brussels-airport/"
+    }
+     {
+      popupType: 'Drone sighting',
+      date: '06 Nov 2025, evening, before 21:30',
+      details: "Drone sighting close to the Air Base; Police can't confirm that sighting but considers it to be very likely true",
+      link: "https://vrtnws.be/p.Pqn1MwxDy#bGl2ZWJsb2dfaXRlbV8xNzYyNDYxMDA1NDQ4"
+    }
+  ]
+},
+
+{
+  lat: 51.17255,
+  lng: 5.45203,
+  icon: icons.droneOrange,
+  type: 'drone',        // used for filtering
+  risk: 'orange',
+  place: 'militarybases',
+  year: '2025',
+  country: "Kleine-Brogel Air Base, Belgium 🇧🇪",
+
+  note: "Kleine-Brogel is a NATO-used base and home to US nukes <br><br> The Belgian security service considers the drones in Belgium to be Russian",
+  noteLink: "https://www.vrt.be/vrtnws/en/2025/11/05/belgian-security-services-convinced-russia-is-behind-the-drone-i/",
+
+  incidents: [
+    {
+      popupType: 'Drone sighting',
+      date: '01 Nov 2025, night',
+      details: "The police got three reports of a  drone; Belgian Minister of Defence, Theo Francken, says that those drones had targeted Kleine-Brogel and didn't coincidentally end up there <br> A drone jammer was used but was unsuccessful ",
+      link: "https://x.com/franckentheo/status/1984908846339391647?s=61"
+    },
+    {
+      popupType: 'Drone sighting',
+      date: '04 Nov 2025, ~18:30',
+      details: "Local citizens reported the sighting of six drones near the base; police also found two",
+      link: "https://www.vrt.be/vrtnws/en/2025/11/05/air-traffic-halted-last-night-due-to-drones-at-brussels-airport/"
+    }
+  ]
+},
+    
+ {
+    lat: 51.12018,
+    lng: 5.30705,
+    icon: icons.droneOrange,
+    type: 'drone',      // used for filtering
+    risk: 'orange',
+    place: 'others',
+    year: '2025',
+    popupType: 'Drone sighting ', // shown in popup
+    date: '01 or 02 Nov 2025',
+    details: "Drones were spotted over the airfield <br> Beverlo is a former military airfield ",
+    link: "https://www.bbc.com/news/articles/c20e8qzllewo",
+    country: "Beverlo Airfield, Belgium 🇧🇪",
+    note: "The Belgian security service considers the drones in Belgium to be Russian",
+    noteLink: "https://www.vrt.be/vrtnws/en/2025/11/05/belgian-security-services-convinced-russia-is-behind-the-drone-i/"
+  },
+
+    {
+  lat: 51.20031,
+  lng: 2.87392,
+  icon: icons.droneOrange,
+  type: 'drone',        // used for filtering
+  risk: 'orange',
+  place: 'airport',
+  year: '2025',
+  country: "Ostend Airport, Belgium 🇧🇪",
+
+  note: "The Belgian security service considers the drones in Belgium to be Russian",
+  noteLink: "https://www.vrt.be/vrtnws/en/2025/11/05/belgian-security-services-convinced-russia-is-behind-the-drone-i/",
+
+  incidents: [
+    {
+      popupType: 'Drone sighting',
+      date: '01 Nov 2025',
+      details: "Drones were spotted",
+      link: "https://www.bbc.com/news/articles/c20e8qzllewo"
+    },
+    {
+      popupType: 'Drone sighting',
+      date: '04 Nov 2025, ~19:00',
+      details: "Drones were spotted",
+      link: "https://www.reuters.com/world/belgium-scrambles-address-airport-closures-caused-by-drones-2025-11-05/"
+    }
+  ]
+},
+
+{
+  lat: 51.18895,
+  lng: 4.46305,
+  icon: icons.droneOrange,
+  type: 'drone',        // used for filtering
+  risk: 'orange',
+  place: 'airport',
+  year: '2025',
+  country: "Antwerp Airport, Belgium 🇧🇪",
+
+  note: "The Belgian security service considers the drones in Belgium to be Russian",
+  noteLink: "https://www.vrt.be/vrtnws/en/2025/11/05/belgian-security-services-convinced-russia-is-behind-the-drone-i/",
+
+  incidents: [
+    {
+      popupType: 'Drone sighting',
+      date: '01 Nov 2025',
+      details: "A drone endangered a landing plane",
+      link: "https://www.brusselstimes.com/1822518/another-drone-spotted-over-antwerp-airport-and-flemish-military-base"
+    },
+    {
+      popupType: 'Drone sighting',
+      date: '04 Nov 2025, ~19:00',
+      details: "Drones were spotted forcing the airport to close",
+      link: "https://www.reuters.com/world/belgium-scrambles-address-airport-closures-caused-by-drones-2025-11-05/"
+    }
+  ]
+},
+
+     {
+    lat: 51.00058,
+    lng: 5.08322,
+    icon: icons.droneOrange,
+    type: 'drone',      // used for filtering
+    risk: 'orange',
+    place: 'others',
+    year: '2025',
+    popupType: 'Drone sighting ', // shown in popup
+    date: '4 Nov 2025, ~21:30 ',
+    details: "Police and military security services confirmed the sighting of four drones over the base ",
+    link: "https://www.vrt.be/vrtnws/nl/2025/11/05/drones-boven-luchtmachtbasis-schaffen/",
+    country: "Schaffen air base, Belgium 🇧🇪",
+    note: "The Belgian security service considers the drones in Belgium to be Russian",
+    noteLink: "https://www.vrt.be/vrtnws/en/2025/11/05/belgian-security-services-convinced-russia-is-behind-the-drone-i/"
+  },
+
+  {
+    lat: 50.81528,
+    lng: 5.18589,
+    icon: icons.droneOrange,
+    type: 'drone',      // used for filtering
+    risk: 'orange',
+    place: 'others',
+    year: '2025',
+    popupType: 'Drone sighting ', // shown in popup
+    date: ' 04 / 05 Nov 2025, 23:00 / 02:00 ',
+    details: "A single drone has been seen twice over the school by both the students and patrols ",
+    link: "https://www.vrt.be/vrtnws/nl/2025/11/07/voorbije-2-nachten-ook-drone-gespot-boven-koninklijke-school-voo/",
+    country: "Royal School for Non-Commissioned Officers, Sint-Truiden, Belgium 🇧🇪",
+    note: "The Belgian security service considers the drones in Belgium to be Russian",
+    noteLink: "https://www.vrt.be/vrtnws/en/2025/11/05/belgian-security-services-convinced-russia-is-behind-the-drone-i/"
+  },
+
+
+{
+  lat: 50.63821,
+  lng: 5.44095,
+  icon: icons.droneOrange,
+  type: 'drone',        // used for filtering
+  risk: 'orange',
+  place: 'airport',
+  year: '2025',
+  country: "Liège Airport, Belgium 🇧🇪",
+
+  note: "Liège airport is a major cargo hub <br><br> The Belgian security service considers the drones in Belgium to be Russian",
+  noteLink: "https://www.vrt.be/vrtnws/en/2025/11/05/belgian-security-services-convinced-russia-is-behind-the-drone-i/",
+
+  incidents: [
+    {
+      popupType: 'Drone sighting / airspace closure',
+      date: '4 Nov 2025, ~21:30 ',
+      details: "Liege airprot has been closed after the sighting of a drone",
+      link: "https://www.vrt.be/vrtnws/nl/liveblog/niet-alleen-boven-eindhoven-ook-boven-volkel-zijn-opnieuw-drone~1762286776579/"
+    },
+    {
+      popupType: 'Drone sighting / airspace closure',
+      date: '06 Nov 2025, 22:00 - 23:20',
+      details: "Air traffic was halted following a drone sighting at the airport",
+      link: "https://vrtnws.be/p.Pqn1MwxDy#bGl2ZWJsb2dfaXRlbV8xNzYyNDY5NDc4OTY5"
+    }
+    {
+      popupType: 'Drone sighting / airspace closure',
+      date: ' 07 Nov 2025, 06:56 - 08:00',
+      details: " Air traffic was halted following a drone sighting at the airport",
+      link: "https://vrtnws.be/p.Pqn1MwxDy#bGl2ZWJsb2dfaXRlbV8xNzYyNDk3OTEyNzM5"
+    }
+    {
+      popupType: 'Drone sighting / airspace closure',
+      date: '08 Nov 2025, 19:00 - 19:30',
+      details: "Air traffic was halted following a drone sighting at the airport",
+      link: "https://vrtnws.be/p.Pqn1MwxDy#bGl2ZWJsb2dfaXRlbV8xNzYyNjI4MzgzMzU1"
+    }
+     {
+      popupType: 'Drone sighting / airspace closure',
+      date: '09 Nov 2025, 19:30 - 20:25',
+      details: "Air traffic was halted following three drone sightings at the airport",
+      link: "https://vrtnws.be/p.Pqn1MwxDy#bGl2ZWJsb2dfaXRlbV8xNzYyNzE1MzU4OTIw"
+    }
+  ]
+},
+
+    
+{
+  lat: 50.90090,
+  lng: 4.48097,
+  icon: icons.droneOrange,
+  type: 'drone',        // used for filtering
+  risk: 'orange',
+  place: 'airport',
+  year: '2025',
+  country: "Brussels Airport, Belgium 🇧🇪",
+
+  note: "Liège airport is a major cargo hub <br><br> The Belgian security service considers the drones in Belgium to be Russian",
+  noteLink: "https://www.vrt.be/vrtnws/en/2025/11/05/belgian-security-services-convinced-russia-is-behind-the-drone-i/",
+
+  incidents: [
+    {
+      popupType: 'Drone sighting / airspace closure',
+      date: '04 Nov 2025, ~20:00 - ~21:20; ~21:50 - ~23:30 ',
+      details: "A drone has been reported shortly before 20:00 which caused the airspace to be closed; the airspace was later closed again due to another drone sighting",
+      link: "https://www.vrt.be/vrtnws/nl/liveblog/niet-alleen-boven-eindhoven-ook-boven-volkel-zijn-opnieuw-drone~1762286776579/"
+    },
+    {
+      popupType: 'Drone sighting / airspace closure',
+      date: '06 Nov 2025, 21:20 - 22:00',
+      details: "The airport was closed following a drone sighting over the airport",
+      link: "https://vrtnws.be/p.Pqn1MwxDy#bGl2ZWJsb2dfaXRlbV8xNzYyNDYyMDI5NDQw"
+    }
+  ]
+},
+
+     {
+    lat: 50.86459,
+    lng: 4.69377,
+    icon: icons.droneGreen,
+    type: 'drone',      // used for filtering
+    risk: 'green',
+    place: 'militarybases',
+    year: '2025',
+    popupType: 'Drone sighting ', // shown in popup
+    date: ' 05 Nov 2025, 18:15 ',
+    details: "The police got notified about drones near the Heverlee barracks but the police could't verify these sightings once they arrived ",
+    link: "https://today.rtl.lu/news/world/a/2352410.html",
+    country: "Heverlee Barracks, Belgium 🇧🇪",
+  },
+
+    
+  {
+    lat: 51.20158,
+    lng: 5.04505,
+    icon: icons.droneOrange,
+    type: 'drone',      // used for filtering
+    risk: 'orange',
+    place: 'infrastructure',
+    year: '2025',
+    popupType: 'Drone sighting ', // shown in popup
+    date: ' 06 Nov 2025, evening, before 21:30 ',
+    details: "The police confirms a drone flying over the SCK CEN nuclear research center. The drone later flew over the European School in Mol",
+    link: "https://vrtnws.be/p.Pqn1MwxDy#bGl2ZWJsb2dfaXRlbV8xNzYyNDYxMDY0MzMw",
+    country: "Mol, Belgium 🇧🇪",
+    note: "The Belgian security service considers the drones in Belgium to be Russian",
+    noteLink: "https://www.vrt.be/vrtnws/en/2025/11/05/belgian-security-services-convinced-russia-is-behind-the-drone-i/"
+  },
+
+  {
+    lat: 51.29547,
+    lng: 4.31852,
+    icon: icons.droneOrange,
+    type: 'drone',      // used for filtering
+    risk: 'orange',
+    place: 'infrastructure',
+    year: '2025',
+    popupType: 'Drone sighting ', // shown in popup
+    date: ' 06 Nov 2025, evening ',
+    details: "The port police confirms the sighting of drones but can't give further details",
+    link: "https://vrtnws.be/p.Pqn1MwxDy#bGl2ZWJsb2dfaXRlbV8xNzYyNDk3MDQ3MDc3",
+    country: "Port of Antwerp, Belgium 🇧🇪",
+    note: "The Belgian security service considers the drones in Belgium to be Russian",
+    noteLink: "https://www.vrt.be/vrtnws/en/2025/11/05/belgian-security-services-convinced-russia-is-behind-the-drone-i/"
+  },
+
+      {
+    lat: 50.75114,
+    lng: 4.04221,
+    icon: icons.droneGreen,
+    type: 'drone',      // used for filtering
+    risk: 'green',
+    place: 'others',
+    year: '2025',
+    popupType: 'Drone sighting ', // shown in popup
+    date: ' 08 Nov 2025 ',
+    details: "Multiple drone sightings were reported but the police couldn't verify them yet <br> Reports came from Heikruis, Herfelingen, Herne, and Tollembeek",
+    link: "https://www.vrt.be/vrtnws/nl/2025/11/09/meldingen-van-drones-in-buurt-van-satcom-bollen-van-navo-in-kest/",
+    country: "Pajottegem, Belgium 🇧🇪",
+    note: "The Kester NATO Setcom base is close to the locations of the reported drones",
+  },
+
+      {
+    lat: 51.31112,
+    lng: 4.26432,
+    icon: icons.droneOrange,
+    type: 'drone',      // used for filtering
+    risk: 'orange',
+    place: 'infrastructure',
+    year: '2025',
+    popupType: 'Drone sighting ', // shown in popup
+    date: ' 09 Nov 2025, ~22:00 - ~23:00 ',
+    details: "Three drones have been reported shortly before 22:00, later the two more drones have been discovered",
+    link: "https://www.politico.eu/article/drones-spotted-belgium-nuclear-plant-doel-airspace-incursions/",
+    country: "Doel Nuclear Power Plant, Belgium 🇧🇪",
+    note: "The Belgian security service considers the drones in Belgium to be Russian",
+    noteLink: "https://www.vrt.be/vrtnws/en/2025/11/05/belgian-security-services-convinced-russia-is-behind-the-drone-i/"
+  },
     
    /* =========================
        C Z E C H I A
@@ -59,7 +439,7 @@ document.addEventListener('DOMContentLoaded', () => {
     link: "https://www.reuters.com/business/aerospace-defense/russias-suspected-hybrid-war-puts-european-air-defences-test-2025-11-05/",
     country: "Czech Republic 🇨🇿"
   },
-
+    
  /* =========================
        D E N M A R K
     ========================= */
@@ -202,6 +582,21 @@ document.addEventListener('DOMContentLoaded', () => {
     noteLink: "https://www.npr.org/2025/10/03/nx-s1-5561990/denmark-russia-drones-hybrid-war"
   },
 
+  {
+    lat: 56.00270,
+    lng: 2.81447,
+    icon: icons.droneGreen,
+    type: 'drone',      // used for filtering
+    risk: 'green',
+    place: 'others',
+    year: '2025',
+    popupType: 'Unverified Drone sighting ', // shown in popup
+    date: '24 Sep 2025',
+    details: "Danish civil rescue company 'Esvagt' reports that it has possibly observed multiple drones flying over the North Sea, near oil fields",
+    link: "https://www.reuters.com/world/europe/denmark-reopens-airports-after-drone-disruption-2025-09-25/",
+    country: "North Sea 🇪🇺 / 🇩🇰",
+  },
+    
   {
     lat: 55.73502,
     lng: 9.12933,
