@@ -11,12 +11,28 @@ document.addEventListener('DOMContentLoaded', () => {
   // Icons
   const icons = {
     droneRed: L.icon({ iconUrl: 'icons/red_drone.png', iconSize: [28,28] }),
+    droneOrange: L.icon({ iconUrl: 'icons/orange_drone.png', iconSize: [28,28] }),
     droneYellow: L.icon({ iconUrl: 'icons/yellow_drone.png', iconSize: [28,28] }),
+    droneGreen: L.icon({ iconUrl: 'icons/green_drone.png', iconSize: [28,28] }),
+    droneBlue: L.icon({ iconUrl: 'icons/blue_drone.png', iconSize: [28,28] }),
+    
     jetRed: L.icon({ iconUrl: 'icons/red_jet.png', iconSize: [28,28] }),
+    jetOrange: L.icon({ iconUrl: 'icons/orange_jet.png', iconSize: [28,28] }),
+    jetYellow: L.icon({ iconUrl: 'icons/yellow_jet.png', iconSize: [28,28] }),
+    jetGreen: L.icon({ iconUrl: 'icons/green_jet.png', iconSize: [28,28] }),
+    jetBlue: L.icon({ iconUrl: 'icons/blue_jet.png', iconSize: [28,28] }),
+
+    balloonRed: L.icon({ iconUrl: 'icons/red_balloon.png', iconSize: [28,28] }),
+    balloonOrange: L.icon({ iconUrl: 'icons/orange_balloon.png', iconSize: [28,28] }),
+    balloonYellow: L.icon({ iconUrl: 'icons/yellow_balloon.png', iconSize: [28,28] }),
+    balloonGreen: L.icon({ iconUrl: 'icons/green_balloon.png', iconSize: [28,28] }),
     balloonBlue: L.icon({ iconUrl: 'icons/blue_balloon.png', iconSize: [28,28] }),
-    airportGreen: L.icon({ iconUrl: 'icons/airport.png', iconSize: [28,28] }),
-    militaryOrange: L.icon({ iconUrl: 'icons/soldier.png', iconSize: [28,28] }),
-    othersBlue: L.icon({ iconUrl: 'icons/dot-square.png', iconSize: [28,28] })
+    
+    borderRed: L.icon({ iconUrl: 'icons/red_soldier.png', iconSize: [28,28] }),
+    borderOrange: L.icon({ iconUrl: 'icons/orange_soldier.png', iconSize: [28,28] }),
+    borderYellow: L.icon({ iconUrl: 'icons/yellow_soldier.png', iconSize: [28,28] }),
+    borderGreen: L.icon({ iconUrl: 'icons/green_soldier.png', iconSize: [28,28] }),
+    borderBlue: L.icon({ iconUrl: 'icons/blue_soldier.png', iconSize: [28,28] }),
   };
 
   // Incident data
