@@ -1761,7 +1761,7 @@ L.control.zoom({
     year: '2025',
     popupType: 'Drone incursion ', // shown in popup
     date: '15 Sep 2025',
-    details: " Turkish F-16 fighters shot down an out-of-control unidentified UAV",
+    details: " Turkish F-16 fighters shot down an out-of-control unidentified UAV. The drone was shot down near Ankara",
     link: "https://www.trtworld.com/article/efc330793d51",
     country: "Black Sea, Türkiye 🇹🇷"
   },
