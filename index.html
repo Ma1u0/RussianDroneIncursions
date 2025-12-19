@@ -7,6 +7,8 @@
 
 <!-- Leaflet CSS -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"/>
 
 <style>
 html, body {
@@ -18,7 +20,7 @@ html, body {
   width: 100vw;
 }
 
-/* Panels styles (filters + legend) */
+/* Panels styles */
 .panel { 
   position: absolute; 
   background:white; 
@@ -47,36 +49,32 @@ html, body {
   padding:8px; 
 }
 
-.collapsed .panel-content { 
-  display:none; 
-}
+.collapsed .panel-content { display:none; }
 
 /* Filters panel */
 #filters {
   bottom: 10px;
   right: 10px;
-  width: 800px;   /* width when open */
-  height: auto;
+  width: 800px; 
   transition: width 0.2s ease, height 0.2s ease;
 }
 
 #filters.collapsed {
-  width: 100px;  /* width when closed */
-  height: 40px;  /* just the header */
+  width: 100px;  
+  height: 40px;  
 }
 
 /* Legend panel */
 #legend {
   top: 10px;
   right: 10px;
-  width: 300px;  /* width when open */
-  height: auto;
+  width: 300px;  
   transition: width 0.2s ease, height 0.2s ease;
 }
 
 #legend.collapsed {
-  width: 150px;  /* width when closed */
-  height: 40px;  /* just the header */
+  width: 150px;  
+  height: 40px;  
 }
 
 /* Columns and content */
@@ -93,8 +91,8 @@ html, body {
   left: 0;
   height: 100%;
   width: 250px;
-  z-index: 1000;
-  transform: translateX(-220px); /* initially closed */
+  z-index: 1001;
+  transform: translateX(-250px); /* fully hidden */
   transition: transform 0.3s ease;
   display: flex;
 }
@@ -116,7 +114,7 @@ html, body {
 /* Hamburger handle */
 #sidebar-handle {
   position: absolute;
-  right: -30px;
+  right: -30px; 
   top: 20px;
   width: 30px;
   height: 40px;
@@ -128,7 +126,7 @@ html, body {
   box-shadow: 2px 0 6px rgba(0,0,0,0.3);
   cursor: pointer;
   font-size: 20px;
-  z-index: 1001;
+  z-index: 1002;
 }
 </style>
 </head>
@@ -149,7 +147,7 @@ html, body {
 <!-- Map -->
 <div id="map"></div>
 
-<!-- Filters panel -->
+<!-- Filters Panel -->
 <div id="filters" class="panel collapsed">
   <div class="panel-header">
     <span>Filters</span>
@@ -166,11 +164,11 @@ html, body {
       </div>
       <!-- Confirmation -->
       <div class="filter-column">
-        <label><input type="checkbox" value="red" checked> 🔴 Incidents confirmed to be caused by Russia</label>
-        <label><input type="checkbox" value="orange" checked> 🟠 Incidents suspected to be caused by Russia</label>
-        <label><input type="checkbox" value="yellow" checked> 🟡 Actor unknown</label>
-        <label><input type="checkbox" value="green" checked> 🟢 Sightings unverified</label>
-        <label><input type="checkbox" value="blue" checked> 🔵 Safety zone breaches</label>
+        <label><input type="checkbox" value="red" checked> 🔴 Confirmed</label>
+        <label><input type="checkbox" value="orange" checked> 🟠 Suspected</label>
+        <label><input type="checkbox" value="yellow" checked> 🟡 Unknown</label>
+        <label><input type="checkbox" value="green" checked> 🟢 Unverified</label>
+        <label><input type="checkbox" value="blue" checked> 🔵 Safety breaches</label>
       </div>
       <!-- Location -->
       <div class="filter-column">
@@ -188,7 +186,7 @@ html, body {
   </div>
 </div>
 
-<!-- Legend panel -->
+<!-- Legend Panel -->
 <div id="legend" class="panel">
   <div class="panel-header">
     <span>Legend</span>
@@ -199,11 +197,11 @@ html, body {
     <div class="legend-row"><img src="icons/fighter-plane.png"> Jet</div>
     <div class="legend-row"><img src="icons/balloon.png"> Balloon</div>
     <div class="legend-row"><img src="icons/base.png"> Ground Border Crossing</div>
-    <div class="legend-row">🔴 Incident confirmed to be caused by Russia</div>
-    <div class="legend-row">🟠 Incident suspected to be caused by Russia</div>
-    <div class="legend-row">🟡 Actor unknown</div>
-    <div class="legend-row">🟢 Sighting unverified</div>
-    <div class="legend-row">🔵 Safety zone breach</div>
+    <div class="legend-row">🔴 Confirmed</div>
+    <div class="legend-row">🟠 Suspected</div>
+    <div class="legend-row">🟡 Unknown</div>
+    <div class="legend-row">🟢 Unverified</div>
+    <div class="legend-row">🔵 Safety breaches</div>
   </div>
 </div>
 
@@ -215,17 +213,18 @@ html, body {
 <script src="map.js"></script>
 
 <script>
-// Panel toggle
+// Panel toggle function
 function togglePanel(id) {
   document.getElementById(id).classList.toggle('collapsed');
 }
 
-// Sidebar toggle click
+// Sidebar toggle
 const sidebar = document.getElementById('sidebar');
 const handle = document.getElementById('sidebar-handle');
+
 handle.addEventListener('click', (e) => {
   sidebar.classList.toggle('sidebar-open');
-  e.stopPropagation(); // prevent click from closing map etc
+  e.stopPropagation();
 });
 </script>
 
