@@ -7,64 +7,18 @@
 
 <!-- Leaflet CSS -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"/>
 
 <style>
 html, body {
   margin: 0;
   height: 100%;
 }
-
 #map {
   height: 100vh;
   width: 100vw;
 }
 
-/* Sidebar */
-#sidebar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 250px;
-  z-index: 1000;
-  transform: translateX(-220px);
-  transition: transform 0.3s ease;
-  display: flex;
-}
-
-#sidebar:hover,
-#sidebar.sidebar-open {
-  transform: translateX(0);
-}
-
-#sidebar-content {
-  width: 250px;
-  height: 100%;
-  background: rgba(255,255,255,0.97);
-  box-shadow: 2px 0 10px rgba(0,0,0,0.25);
-  padding: 12px;
-  box-sizing: border-box;
-}
-
-#sidebar-handle {
-  position: absolute;
-  left: 0;
-  top: 20px;
-  width: 30px;
-  height: 40px;
-  background: white;
-  border-radius: 0 6px 6px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 2px 0 6px rgba(0,0,0,0.3);
-  cursor: pointer;
-  font-size: 20px;
-  z-index: 1002;
-}
-
-/* Panels (Filters + Legend) */
+/* Panels styles (filters + legend) */
 .panel { 
   position: absolute; 
   background:white; 
@@ -93,38 +47,89 @@ html, body {
   padding:8px; 
 }
 
-.collapsed .panel-content { display:none; }
+.collapsed .panel-content { 
+  display:none; 
+}
 
 /* Filters panel */
 #filters {
   bottom: 10px;
   right: 10px;
-  width: 800px;
+  width: 800px;   /* width when open */
+  height: auto;
   transition: width 0.2s ease, height 0.2s ease;
 }
 
-#filters.collapsed { width: 100px; height: 40px; }
+#filters.collapsed {
+  width: 100px;  /* width when closed */
+  height: 40px;  /* just the header */
+}
 
 /* Legend panel */
 #legend {
   top: 10px;
   right: 10px;
-  width: 300px;
+  width: 300px;  /* width when open */
+  height: auto;
   transition: width 0.2s ease, height 0.2s ease;
 }
 
-#legend.collapsed { width: 150px; height: 40px; }
+#legend.collapsed {
+  width: 150px;  /* width when closed */
+  height: 40px;  /* just the header */
+}
 
-/* Filter columns */
+/* Columns and content */
 .filter-columns { display:flex; gap:20px; }
 .filter-columns .filter-column { display:flex; flex-direction:column; gap:4px; }
-.filter-column label { display:flex; align-items:center; gap:6px; }
-.filter-column label img { width:24px; height:24px; }
+.filter-column label img { width:24px; height:24px; vertical-align:middle; margin-right:6px; }
+.legend-row img { width:28px; height:28px; vertical-align:middle; margin-right:6px; }
+.legend-row { margin-bottom:8px; }
 
-/* Legend rows */
-.legend-row { display:flex; align-items:center; gap:6px; margin-bottom:8px; }
-.legend-row img { width:28px; height:28px; }
+/* Sidebar */
+#sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  z-index: 1000;
+  transform: translateX(-220px); /* initially closed */
+  transition: transform 0.3s ease;
+  display: flex;
+}
 
+#sidebar.sidebar-open,
+#sidebar:hover {
+  transform: translateX(0);
+}
+
+#sidebar-content {
+  width: 250px;
+  height: 100%;
+  background: rgba(255,255,255,0.97);
+  box-shadow: 2px 0 10px rgba(0,0,0,0.25);
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+/* Hamburger handle */
+#sidebar-handle {
+  position: absolute;
+  right: -30px;
+  top: 20px;
+  width: 30px;
+  height: 40px;
+  background: white;
+  border-radius: 0 6px 6px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 0 6px rgba(0,0,0,0.3);
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 1001;
+}
 </style>
 </head>
 
@@ -132,15 +137,16 @@ html, body {
 
 <!-- Sidebar -->
 <div id="sidebar">
-  <div id="sidebar-handle">&#9776;</div>
   <div id="sidebar-content">
     <h3>Statistics</h3>
     <div id="stats-per-month"></div>
     <div id="stats-per-country"></div>
     <div id="stats-per-incident"></div>
   </div>
+  <div id="sidebar-handle">&#9776;</div>
 </div>
 
+<!-- Map -->
 <div id="map"></div>
 
 <!-- Filters panel -->
@@ -151,14 +157,32 @@ html, body {
   </div>
   <div class="panel-content">
     <div class="filter-columns">
+      <!-- Type -->
       <div class="filter-column">
         <label><input type="checkbox" value="drone" checked> <img src="icons/uav.png"> Drones</label>
         <label><input type="checkbox" value="jet" checked> <img src="icons/fighter-plane.png"> Jets</label>
         <label><input type="checkbox" value="balloon" checked> <img src="icons/balloon.png"> Balloons</label>
+        <label><input type="checkbox" value="border" checked> <img src="icons/soldier.png"> Ground Border Crossing</label>
       </div>
+      <!-- Confirmation -->
       <div class="filter-column">
-        <label><input type="checkbox" value="red" checked> <span style="color:red;">🔴</span> Confirmed Russia</label>
-        <label><input type="checkbox" value="orange" checked> <span style="color:orange;">🟠</span> Suspected Russia</label>
+        <label><input type="checkbox" value="red" checked> 🔴 Incidents confirmed to be caused by Russia</label>
+        <label><input type="checkbox" value="orange" checked> 🟠 Incidents suspected to be caused by Russia</label>
+        <label><input type="checkbox" value="yellow" checked> 🟡 Actor unknown</label>
+        <label><input type="checkbox" value="green" checked> 🟢 Sightings unverified</label>
+        <label><input type="checkbox" value="blue" checked> 🔵 Safety zone breaches</label>
+      </div>
+      <!-- Location -->
+      <div class="filter-column">
+        <label><input type="checkbox" value="airports" checked> <img src="icons/airport.png"> Airports</label>
+        <label><input type="checkbox" value="militarybases" checked> <img src="icons/soldier.png"> Military bases</label>
+        <label><input type="checkbox" value="infrastructure" checked> <img src="icons/nuclear-plant.png"> Infrastructure </label>
+        <label><input type="checkbox" value="others" checked> <img src="icons/dot-square.png"> Others</label>
+      </div>
+      <!-- Year -->
+      <div class="filter-column">
+        <label><input type="checkbox" value="2025" checked> 2025</label>
+        <label><input type="checkbox" value="2026" checked> 2026</label>
       </div>
     </div>
   </div>
@@ -174,8 +198,12 @@ html, body {
     <div class="legend-row"><img src="icons/uav.png"> Drone</div>
     <div class="legend-row"><img src="icons/fighter-plane.png"> Jet</div>
     <div class="legend-row"><img src="icons/balloon.png"> Balloon</div>
-    <div class="legend-row">🔴 Confirmed Russia</div>
-    <div class="legend-row">🟠 Suspected Russia</div>
+    <div class="legend-row"><img src="icons/base.png"> Ground Border Crossing</div>
+    <div class="legend-row">🔴 Incident confirmed to be caused by Russia</div>
+    <div class="legend-row">🟠 Incident suspected to be caused by Russia</div>
+    <div class="legend-row">🟡 Actor unknown</div>
+    <div class="legend-row">🟢 Sighting unverified</div>
+    <div class="legend-row">🔵 Safety zone breach</div>
   </div>
 </div>
 
@@ -183,59 +211,22 @@ html, body {
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 
+<!-- Your map script -->
+<script src="map.js"></script>
+
 <script>
-// Initialize map
-const map = L.map('map').setView([20, 0], 2);
-
-// Add a tile layer
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
-
-// Sample markers with different colors/icons
-const markers = L.markerClusterGroup({
-  iconCreateFunction: function(cluster) {
-    // Count types inside cluster
-    const markers = cluster.getAllChildMarkers();
-    let color = 'blue';
-    if(markers.some(m => m.options.type==='red')) color = 'red';
-    else if(markers.some(m => m.options.type==='orange')) color = 'orange';
-    return L.divIcon({
-      html: `<div style="background-color:${color};border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;color:white;">${cluster.getChildCount()}</div>`,
-      className: 'custom-cluster-icon',
-      iconSize: [30,30]
-    });
-  }
-});
-
-// Example markers
-const data = [
-  {lat:50,lng:10,type:'red'},
-  {lat:51,lng:10,type:'red'},
-  {lat:52,lng:11,type:'orange'},
-  {lat:53,lng:12,type:'blue'},
-  {lat:50,lng:15,type:'blue'},
-];
-
-data.forEach(d=>{
-  const m = L.marker([d.lat,d.lng], {type:d.type});
-  markers.addLayer(m);
-});
-
-map.addLayer(markers);
-
-// Sidebar toggle
-const sidebar = document.getElementById('sidebar');
-const handle = document.getElementById('sidebar-handle');
-handle.addEventListener('click', e=>{
-  sidebar.classList.toggle('sidebar-open');
-  e.stopPropagation();
-});
-
-// Panels toggle
+// Panel toggle
 function togglePanel(id) {
   document.getElementById(id).classList.toggle('collapsed');
 }
+
+// Sidebar toggle click
+const sidebar = document.getElementById('sidebar');
+const handle = document.getElementById('sidebar-handle');
+handle.addEventListener('click', (e) => {
+  sidebar.classList.toggle('sidebar-open');
+  e.stopPropagation(); // prevent click from closing map etc
+});
 </script>
 
 </body>
