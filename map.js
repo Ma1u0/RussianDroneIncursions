@@ -1019,6 +1019,8 @@ document.addEventListener('DOMContentLoaded', () => {
   year: '2025',
   country: "Vilnius Airport / Lithuanian-Belarusian border, Lithuania 🇱🇹",
 
+  note: "List is scrollable due to too many incidents",
+
   incidents: [
     {
       popupType: ' Weather balloons / Smuggle balloons / Airport closure',
