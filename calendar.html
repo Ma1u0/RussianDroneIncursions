@@ -6,8 +6,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Shared CSS -->
-<link rel="stylesheet" href="style.css"> <!-- include your sidebar + panel styles here -->
+<link rel="stylesheet" href="style.css"> <!-- sidebar + panel styles -->
 
+<!-- FullCalendar CSS -->
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet">
+
+<style>
+  /* Ensure calendar fills content area */
+  #calendar {
+    max-width: 900px;
+    margin: 20px auto;
+  }
+</style>
 </head>
 <body>
 
@@ -16,7 +26,6 @@
   <div id="sidebar-content">
     <p><a href="index.html">🏠 Home</a></p>
     <p><a href="calendar.html">📅 Calendar</a></p>
-    <!-- Add more links here if needed -->
   </div>
   <div id="sidebar-handle">&#9776;</div>
 </div>
@@ -24,12 +33,39 @@
 <!-- Main content -->
 <div id="main-content" style="margin-left:260px; padding:20px;">
   <h1>Calendar View</h1>
-  <p>Here you can display incidents by date…</p>
-  <!-- You can later integrate a full calendar widget here -->
+  <div id="calendar"></div>
 </div>
 
+<!-- FullCalendar JS -->
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js"></script>
+
 <!-- Sidebar toggle JS -->
-<script src="sidebar.js"></script> <!-- shared JS for toggle functionality -->
+<script src="sidebar.js"></script>
+
+<script>
+  // Initialize FullCalendar
+  document.addEventListener('DOMContentLoaded', function() {
+    const calendarEl = document.getElementById('calendar');
+
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth',
+      initialDate: '2025-09-01', // starts September 2025
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+      },
+      events: [
+        // Example events (replace with your incident data)
+        { title: 'Drone Sighting', start: '2025-09-03' },
+        { title: 'Border Crossing', start: '2025-09-07' },
+        { title: 'Jet Activity', start: '2025-09-15' }
+      ]
+    });
+
+    calendar.render();
+  });
+</script>
 
 </body>
 </html>
