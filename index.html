@@ -15,74 +15,87 @@ html, body {
   margin: 0;
   height: 100%;
 }
+
 #map {
   height: 100vh;
   width: 100vw;
 }
 
-/* Panels styles */
+/* Panels */
 .panel { 
   position: absolute; 
-  background:white; 
-  border-radius:6px; 
-  box-shadow:0 2px 10px rgba(0,0,0,0.3); 
-  font-family:sans-serif; 
-  z-index:1000; 
+  background: white; 
+  border-radius: 6px; 
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3); 
+  font-family: sans-serif; 
+  z-index: 1000; 
 }
 
 .panel-header { 
-  display:flex; 
-  justify-content:space-between; 
-  padding:8px; 
-  font-weight:bold; 
-  background:#f0f0f0; 
+  display: flex; 
+  justify-content: space-between; 
+  padding: 8px; 
+  font-weight: bold; 
+  background: #f0f0f0; 
 }
 
 .panel button { 
-  background:none; 
-  border:none; 
-  font-size:16px; 
-  cursor:pointer; 
+  background: none; 
+  border: none; 
+  font-size: 16px; 
+  cursor: pointer; 
 }
 
-.panel-content { 
-  padding:8px; 
-}
+.panel-content { padding: 8px; }
 
-.collapsed .panel-content { display:none; }
+.collapsed .panel-content { display: none; }
 
 /* Filters panel */
 #filters {
   bottom: 10px;
   right: 10px;
-  width: 800px; 
-  transition: width 0.2s ease, height 0.2s ease;
+  width: 780px;
 }
 
 #filters.collapsed {
-  width: 100px;  
-  height: 40px;  
+  width: 120px;
+  height: 40px;
 }
 
-/* Legend panel */
+/* Sentence filter layout */
+#sentence-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  font-size: 14px;
+}
+
+#sentence-filters select {
+  padding: 4px 6px;
+}
+
+/* Legend */
 #legend {
   top: 10px;
   right: 10px;
-  width: 300px;  
-  transition: width 0.2s ease, height 0.2s ease;
+  width: 300px;
 }
 
 #legend.collapsed {
-  width: 150px;  
-  height: 40px;  
+  width: 150px;
+  height: 40px;
 }
 
-/* Columns and content */
-.filter-columns { display:flex; gap:20px; }
-.filter-columns .filter-column { display:flex; flex-direction:column; gap:4px; }
-.filter-column label img { width:24px; height:24px; vertical-align:middle; margin-right:6px; }
-.legend-row img { width:28px; height:28px; vertical-align:middle; margin-right:6px; }
-.legend-row { margin-bottom:8px; }
+.legend-row {
+  margin-bottom: 6px;
+}
+
+.legend-row img {
+  width: 26px;
+  vertical-align: middle;
+  margin-right: 6px;
+}
 
 /* Sidebar */
 #sidebar {
@@ -91,9 +104,9 @@ html, body {
   left: 0;
   height: 100%;
   width: 250px;
-  z-index: 1001;
-  transform: translateX(-250px); /* fully hidden */
+  transform: translateX(-250px);
   transition: transform 0.3s ease;
+  z-index: 1001;
   display: flex;
 }
 
@@ -104,17 +117,14 @@ html, body {
 
 #sidebar-content {
   width: 250px;
-  height: 100%;
   background: rgba(255,255,255,0.97);
   box-shadow: 2px 0 10px rgba(0,0,0,0.25);
   padding: 12px;
-  box-sizing: border-box;
 }
 
-/* Hamburger handle */
 #sidebar-handle {
   position: absolute;
-  right: -30px; 
+  right: -30px;
   top: 20px;
   width: 30px;
   height: 40px;
@@ -136,10 +146,8 @@ html, body {
 <!-- Sidebar -->
 <div id="sidebar">
   <div id="sidebar-content">
-    <!-- Sidebar links -->
     <p><a href="index.html">🗺️ Map</a></p>
     <p><a href="calendar.html">📅 Calendar</a></p>
-    <!-- Add more links here as needed -->
   </div>
   <div id="sidebar-handle">&#9776;</div>
 </div>
@@ -147,46 +155,74 @@ html, body {
 <!-- Map -->
 <div id="map"></div>
 
-<!-- Filters Panel -->
+<!-- Filters Panel (SENTENCE STYLE) -->
 <div id="filters" class="panel collapsed">
   <div class="panel-header">
     <span>Filters</span>
     <button onclick="togglePanel('filters')">▾</button>
   </div>
+
   <div class="panel-content">
-    <div class="filter-columns">
-      <!-- Type -->
-      <div class="filter-column">
-        <label><input type="checkbox" value="drone" checked> <img src="icons/uav.png"> Drones</label>
-        <label><input type="checkbox" value="jet" checked> <img src="icons/fighter-plane.png"> Jets</label>
-        <label><input type="checkbox" value="balloon" checked> <img src="icons/balloon.png"> Balloons</label>
-        <label><input type="checkbox" value="border" checked> <img src="icons/soldier.png"> Ground Border Crossing</label>
-      </div>
-      <!-- Confirmation -->
-      <div class="filter-column">
-        <label><input type="checkbox" value="red" checked> 🔴 Confirmed</label>
-        <label><input type="checkbox" value="orange" checked> 🟠 Suspected</label>
-        <label><input type="checkbox" value="yellow" checked> 🟡 Unknown</label>
-        <label><input type="checkbox" value="green" checked> 🟢 Unverified</label>
-        <label><input type="checkbox" value="blue" checked> 🔵 Safety breaches</label>
-      </div>
-      <!-- Location -->
-      <div class="filter-column">
-        <label><input type="checkbox" value="airports" checked> <img src="icons/airport.png"> Airports</label>
-        <label><input type="checkbox" value="militarybases" checked> <img src="icons/soldier.png"> Military bases</label>
-        <label><input type="checkbox" value="infrastructure" checked> <img src="icons/nuclear-plant.png"> Infrastructure </label>
-        <label><input type="checkbox" value="others" checked> <img src="icons/dot-square.png"> Others</label>
-      </div>
-      <!-- Year -->
-      <div class="filter-column">
-        <label><input type="checkbox" value="2025" checked> 2025</label>
-        <label><input type="checkbox" value="2026" checked> 2026</label>
-      </div>
+    <div id="sentence-filters">
+
+      <span>Show</span>
+
+      <select id="f-actor">
+        <option value="any">all actors</option>
+        <option value="red">confirmed Russian</option>
+        <option value="orange">suspected Russian</option>
+        <option value="yellow">unknown actor</option>
+        <option value="green">unverified</option>
+        <option value="blue">safety breaches</option>
+      </select>
+
+      <select id="f-type">
+        <option value="any">all incidents</option>
+        <option value="drone">drones</option>
+        <option value="jet">jets</option>
+        <option value="balloon">balloons</option>
+        <option value="border">ground crossings</option>
+      </select>
+
+      <span>at</span>
+
+      <select id="f-location">
+        <option value="any">any place</option>
+        <option value="airports">airports</option>
+        <option value="militarybases">military bases</option>
+        <option value="infrastructure">infrastructure</option>
+        <option value="others">other locations</option>
+      </select>
+
+      <span>in</span>
+
+      <select id="f-month">
+        <option value="any">any month</option>
+        <option value="1">January</option>
+        <option value="2">February</option>
+        <option value="3">March</option>
+        <option value="4">April</option>
+        <option value="5">May</option>
+        <option value="6">June</option>
+        <option value="7">July</option>
+        <option value="8">August</option>
+        <option value="9">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+      </select>
+
+      <select id="f-year">
+        <option value="any">any year</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+      </select>
+
     </div>
   </div>
 </div>
 
-<!-- Legend Panel -->
+<!-- Legend -->
 <div id="legend" class="panel">
   <div class="panel-header">
     <span>Legend</span>
@@ -205,15 +241,14 @@ html, body {
   </div>
 </div>
 
-<!-- Leaflet JS -->
+<!-- Leaflet -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 
-<!-- Your map script -->
+<!-- Your map logic -->
 <script src="map.js"></script>
 
 <script>
-// Panel toggle function
 function togglePanel(id) {
   document.getElementById(id).classList.toggle('collapsed');
 }
