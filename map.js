@@ -1072,7 +1072,7 @@ document.addEventListener('DOMContentLoaded', () => {
       popupType: 'Weather balloons / Smuggle balloons / Airport closure',
       date: ' 28 / 29 Nov 2025, 23:15 - 07:03; 01:40 - 03:25',
       details: "Air traffic was halted due to balloons moving in he direction of Vilnius Airport",
-      link: "(https://www.vilnius-airport.lt/en/news/airspace-restrictions-at-vilnius-airport-on-november-28-29"
+      link: "https://www.vilnius-airport.lt/en/news/airspace-restrictions-at-vilnius-airport-on-november-28-29"
     },
      {
       popupType: ' Weather balloons / Smuggle balloons / Airport closure',
@@ -1793,7 +1793,10 @@ const popupHtml = (() => {
 })();
 
   const marker = L.marker([i.lat, i.lng], { icon: i.icon })
-    .bindPopup(popupHtml);
+  .bindPopup(popupHtml, {
+  maxHeight: 300,
+  autoPan: true
+});
 
   marker.meta = i;
   markers.push(marker);
