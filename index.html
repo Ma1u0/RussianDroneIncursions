@@ -90,27 +90,34 @@ html, body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 250px; /* adjust as needed */
   height: 100%;
-  background: rgba(255,255,255,0.95);
-  z-index: 1000; /* make sure it’s above map and filters */
+  z-index: 1000;
+  display: flex;
+}
+
+/* Actual white panel */
+#sidebar-content {
+  width: 250px;
+  background: rgba(255,255,255,0.96);
+  box-shadow: 2px 0 8px rgba(0,0,0,0.2);
   transition: transform 0.3s ease;
 }
 
-.sidebar-closed {
-  transform: translateX(-220px); /* 250px sidebar - ~30px handle */
+/* Closed state */
+.sidebar-closed #sidebar-content {
+  transform: translateX(-100%);
 }
 
-#sidebar:hover {
-  transform: translateX(0);
-}
-
+/* Hamburger handle */
 #sidebar-handle {
-  position: absolute;
-  right: -30px; /* sticks out as handle */
-  top: 20px;
+  width: 32px;
+  background: #333;
+  color: white;
   cursor: pointer;
-  font-size: 24px;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
   
 </style>
