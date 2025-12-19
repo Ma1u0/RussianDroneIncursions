@@ -1,1 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Calendar - World Incident Map</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"/>
+<link rel="stylesheet" href="style.css"> <!-- Use external CSS for shared sidebar styles -->
+</head>
+
+<body>
+
+<!-- Sidebar (same as index.html) -->
+<div id="sidebar">
+  <div id="sidebar-content">
+    <h3>Statistics</h3>
+    <div id="stats-per-month"></div>
+    <div id="stats-per-country"></div>
+    <div id="stats-per-incident"></div>
+    
+    <!-- Add link to calendar page -->
+    <p><a href="calendar.html">📅 Calendar</a></p>
+  </div>
+  <div id="sidebar-handle">&#9776;</div>
+</div>
+
+<!-- Main content for calendar -->
+<div id="main-content" style="margin-left:260px; padding:20px;">
+  <h1>Calendar View</h1>
+  <p>Here you can display incidents by date…</p>
+  <!-- You can later add a full calendar widget -->
+</div>
+
+<script src="sidebar.js"></script> <!-- Shared JS for sidebar toggle -->
+</body>
+</html>
