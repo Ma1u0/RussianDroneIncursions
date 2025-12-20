@@ -73,11 +73,12 @@ document.addEventListener('DOMContentLoaded', () => {
     note: "The Belgian security service considers the drones in Belgium to be Russian",
     noteLink: "https://www.vrt.be/vrtnws/en/2025/11/05/belgian-security-services-convinced-russia-is-behind-the-drone-i/"
   },
-    {
+    
+{
   lat: 50.23922,
   lng: 5.50552,
-  icon: icons.droneOrange,
-  type: 'drone',        // used for filtering
+  icon: icons.droneOrange,   // choose the appropriate icon
+  type: 'drone',             // used for filtering
   risk: 'orange',
   place: 'militarybases',
   year: '2025',
@@ -87,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
   note: "The Belgian security service considers the drones in Belgium to be Russian",
   noteLink: "https://www.vrt.be/vrtnws/en/2025/11/05/belgian-security-services-convinced-russia-is-behind-the-drone-i/",
 
+  // Key part: each incident is an object in an array
   incidents: [
     {
       popupType: 'Drone sighting',
@@ -100,8 +102,8 @@ document.addEventListener('DOMContentLoaded', () => {
       details: "Several drones have been spotted over the air base",
       link: "https://www.vrt.be/vrtnws/en/2025/10/29/drones-spotted-above-belgian-military-base/"
     }
-  ]
-},
+  ],
+}
 
   {
   lat: 50.24550,
