@@ -1873,7 +1873,7 @@ document.addEventListener('DOMContentLoaded', () => {
     date: '19 Dec 2025',
     details: "A crashed, unidentified UAV was found by citizens in the rural Çubuklubala neighborhood in Izmit. The camera is still working. <br> The drone is an Russian-made Orlan-10 drone, which is used for surveillance and reconnaissance ",
     link: "https://www.trtworld.com/article/82a95c0936d0",
-    country: "Izmit, Turkey 🇹🇷"
+    country: "Izmit, Türkiye 🇹🇷"
   },
 
 
@@ -1890,7 +1890,7 @@ document.addEventListener('DOMContentLoaded', () => {
     date: ' Found 10 Dec in the evening, reported 20 Dec 2025',
     details: "A crashed, unidentified UAV was found by citizens in the Balıkesir’s Manyas district in an uninhabited field. <br> The drone is an Russian Merlin VR drone, which is used for reconnaissance and has a range of ~600km ",
     link: "https://www.hurriyet.com.tr/gundem/balikesirde-insansiz-hava-araci-dustu-inceleme-icin-ankaraya-gonderildi-43060797",
-    country: "Manyas, Turkey 🇹🇷"
+    country: "Manyas, Türkiye 🇹🇷"
   },
   ];
 
