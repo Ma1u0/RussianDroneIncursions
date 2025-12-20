@@ -73,8 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     note: "The Belgian security service considers the drones in Belgium to be Russian",
     noteLink: "https://www.vrt.be/vrtnws/en/2025/11/05/belgian-security-services-convinced-russia-is-behind-the-drone-i/"
   },
-
-{
+    {
   lat: 50.23922,
   lng: 5.50552,
   icon: icons.droneOrange,
@@ -101,31 +100,8 @@ document.addEventListener('DOMContentLoaded', () => {
       details: "Several drones have been spotted over the air base",
       link: "https://www.vrt.be/vrtnws/en/2025/10/29/drones-spotted-above-belgian-military-base/"
     }
-  ],
-
-  // Popup generator: safely handle multiple incidents
-  getPopupHtml: function() {
-    let html = `<b>${this.country}</b><br>`;
-    if (this.note) {
-      html += `<em>${this.note}</em>`;
-      if (this.noteLink) html += ` <a href="${this.noteLink}" target="_blank">Source</a>`;
-      html += '<br><br>';
-    }
-
-    if (Array.isArray(this.incidents)) {
-      this.incidents.forEach((inc, idx) => {
-        html += `<b>Incident ${idx + 1}</b><br>
-                 <b>Type:</b> ${inc.popupType}<br>
-                 <b>Date:</b> ${inc.date}<br>
-                 <b>Details:</b> ${inc.details}<br>
-                 ${inc.link ? `<a href="${inc.link}" target="_blank">Source</a>` : ''}
-                 <hr>`;
-      });
-    }
-
-    return html;
-  }
-}
+  ]
+},
 
   {
   lat: 50.24550,
