@@ -97,13 +97,54 @@ html, body { margin:0; height:100%; }
   <div class="panel-content">
     <div id="sentence-filters">
       <span>Show</span>
-      <select id="f-actor"><option value="any">all actors</option></select>
-      <select id="f-type"><option value="any">all incidents</option></select>
+      <select id="f-actor">
+        <option value="any">all actors</option>
+        <option value="red">confirmed Russian</option>
+        <option value="orange">suspected Russian</option>
+        <option value="yellow">unknown actor</option>
+        <option value="green">unverified</option>
+        <option value="blue">safety breaches</option>
+      </select>
+
+      <select id="f-type">
+        <option value="any">all incidents</option>
+        <option value="drone">drones</option>
+        <option value="jet">jets</option>
+        <option value="balloon">balloons</option>
+        <option value="border">ground crossings</option>
+      </select>
+
       <span>at</span>
-      <select id="f-location"><option value="any">any place</option></select>
+      <select id="f-location">
+        <option value="any">any place</option>
+        <option value="airports">airports</option>
+        <option value="militarybases">military bases</option>
+        <option value="infrastructure">infrastructure</option>
+        <option value="others">other locations</option>
+      </select>
+
       <span>in</span>
-      <select id="f-month"><option value="any">any month</option></select>
-      <select id="f-year"><option value="any">any year</option></select>
+      <select id="f-month">
+        <option value="any">any month</option>
+        <option value="1">January</option>
+        <option value="2">February</option>
+        <option value="3">March</option>
+        <option value="4">April</option>
+        <option value="5">May</option>
+        <option value="6">June</option>
+        <option value="7">July</option>
+        <option value="8">August</option>
+        <option value="9">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+      </select>
+
+      <select id="f-year">
+        <option value="any">any year</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+      </select>
     </div>
   </div>
 </div>
@@ -119,6 +160,11 @@ html, body { margin:0; height:100%; }
     <div class="legend-row"><img src="icons/fighter-plane.png"> Jet</div>
     <div class="legend-row"><img src="icons/balloon.png"> Balloon</div>
     <div class="legend-row"><img src="icons/base.png"> Ground Border Crossing</div>
+    <div class="legend-row">🔴 Confirmed</div>
+    <div class="legend-row">🟠 Suspected</div>
+    <div class="legend-row">🟡 Unknown</div>
+    <div class="legend-row">🟢 Unverified</div>
+    <div class="legend-row">🔵 Safety breaches</div>
   </div>
 </div>
 
@@ -126,11 +172,18 @@ html, body { margin:0; height:100%; }
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 
-<!-- Map JS (your existing map.js) -->
+<!-- 1️⃣ Initialize map BEFORE map.js -->
+<script>
+window.map = L.map('map', { zoomControl: false }).setView([20,0],2);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(window.map);
+L.control.zoom({ position: 'bottomleft' }).addTo(window.map);
+</script>
+
+<!-- 2️⃣ Your existing map.js -->
 <script src="map.js"></script>
 
+<!-- 3️⃣ Panel + sidebar JS -->
 <script>
-// Panel toggle
 function togglePanel(id){document.getElementById(id).classList.toggle('collapsed');}
 
 // Sidebar toggle
@@ -139,16 +192,7 @@ const handle = document.getElementById('sidebar-handle');
 handle.addEventListener('click', e => {
   sidebar.classList.toggle('sidebar-open');
   e.stopPropagation();
-  // Make sure map redraws after sidebar moves
   if(window.map) window.map.invalidateSize();
-});
-
-// Minimal check: ensure map renders
-document.addEventListener('DOMContentLoaded', () => {
-  if(!window.map) {
-    window.map = L.map('map').setView([20,0],2);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(window.map);
-  }
 });
 </script>
 
