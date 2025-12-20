@@ -12,7 +12,7 @@
 
 <style>
 html, body { margin:0; height:100%; font-family:sans-serif; }
-#map { position:absolute; top:0; left:0; right:0; bottom:0; transition:left 0.3s; }
+#map { position:absolute; top:0; left:0; right:0; bottom:0; }
 
 /* Sidebar */
 #sidebar {
@@ -23,9 +23,9 @@ html, body { margin:0; height:100%; font-family:sans-serif; }
   width:250px;
   background: rgba(255,255,255,0.97);
   box-shadow: 2px 0 10px rgba(0,0,0,0.25);
-  z-index: 1001;
   transform: translateX(-250px);
   transition: transform 0.3s ease;
+  z-index: 1000;
 }
 #sidebar.sidebar-open { transform: translateX(0); }
 #sidebar-content { padding:12px; }
@@ -42,11 +42,10 @@ html, body { margin:0; height:100%; font-family:sans-serif; }
   box-shadow:2px 0 6px rgba(0,0,0,0.3);
   cursor:pointer;
   font-size:20px;
-  z-index:1002;
 }
 
 /* Panels */
-.panel { position:absolute; background:white; border-radius:6px; box-shadow:0 2px 10px rgba(0,0,0,0.3); font-family:sans-serif; z-index:1000; }
+.panel { position:absolute; background:white; border-radius:6px; box-shadow:0 2px 10px rgba(0,0,0,0.3); font-family:sans-serif; z-index:1001; }
 .panel-header { display:flex; justify-content:space-between; padding:8px; font-weight:bold; background:#f0f0f0; }
 .panel button { background:none; border:none; font-size:16px; cursor:pointer; }
 .panel-content { padding:8px; }
@@ -68,7 +67,6 @@ html, body { margin:0; height:100%; font-family:sans-serif; }
 .legend-row img { width:26px; vertical-align:middle; margin-right:6px; }
 </style>
 </head>
-
 <body>
 
 <!-- Sidebar -->
@@ -100,7 +98,6 @@ html, body { margin:0; height:100%; font-family:sans-serif; }
         <option value="green">unverified</option>
         <option value="blue">safety breaches</option>
       </select>
-
       <select id="f-type">
         <option value="any">all incidents</option>
         <option value="drone">drones</option>
@@ -108,7 +105,6 @@ html, body { margin:0; height:100%; font-family:sans-serif; }
         <option value="balloon">balloons</option>
         <option value="border">ground crossings</option>
       </select>
-
       <span>at</span>
       <select id="f-location">
         <option value="any">any place</option>
@@ -117,7 +113,6 @@ html, body { margin:0; height:100%; font-family:sans-serif; }
         <option value="infrastructure">infrastructure</option>
         <option value="others">other locations</option>
       </select>
-
       <span>in</span>
       <select id="f-month">
         <option value="any">any month</option>
@@ -134,7 +129,6 @@ html, body { margin:0; height:100%; font-family:sans-serif; }
         <option value="11">November</option>
         <option value="12">December</option>
       </select>
-
       <select id="f-year">
         <option value="any">any year</option>
         <option value="2025">2025</option>
@@ -144,7 +138,7 @@ html, body { margin:0; height:100%; font-family:sans-serif; }
   </div>
 </div>
 
-<!-- Legend -->
+<!-- Legend Panel -->
 <div id="legend" class="panel">
   <div class="panel-header">
     <span>Legend</span>
@@ -171,7 +165,7 @@ html, body { margin:0; height:100%; font-family:sans-serif; }
 <script src="map.js"></script>
 
 <script>
-// Toggle panels
+// Panels
 function togglePanel(id){document.getElementById(id).classList.toggle('collapsed');}
 
 // Sidebar toggle
@@ -179,9 +173,6 @@ const sidebar = document.getElementById('sidebar');
 const handle = document.getElementById('sidebar-handle');
 handle.addEventListener('click', e => {
   sidebar.classList.toggle('sidebar-open');
-  // Shift map when sidebar opens
-  document.getElementById('map').style.left = sidebar.classList.contains('sidebar-open') ? '250px' : '0';
-  e.stopPropagation();
 });
 
 // Filters
