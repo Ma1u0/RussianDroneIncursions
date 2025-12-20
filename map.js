@@ -1,19 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize map
- const map = L.map('map', {
-  zoomControl: false
-}).setView([20, 0], 2);
+  // Use the existing global map instance
+  const map = window.map;
 
-L.control.zoom({
-  position: 'bottomleft' // or 'bottomleft'
-}).addTo(map);
+  // Optionally set the view if not already set
+  map.setView([20, 0], 2);
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+  // Add tile layer (if not already added)
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19
+  }).addTo(map);
 
   // Initialize MarkerCluster group
   const markerCluster = L.markerClusterGroup();
   map.addLayer(markerCluster);
 
+  // Example: add your markers (replace this with your actual marker data)
+  const marker = L.marker([20, 0]).bindPopup('Test marker');
+  markerCluster.addLayer(marker);
+});
   // Icons
   const icons = {
     droneRed: L.icon({ iconUrl: 'icons/red_drone.png', iconSize: [28,28] }),
