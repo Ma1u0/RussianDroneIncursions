@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"/>
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"/>
 
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&family=Bebas+Neue&family=Fjalla+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&family=Bebas+Neue&family=Inter:wght@400;500&family=JetBrains+Mono&display=swap" rel="stylesheet">
   
 <style>
 html, body { margin:0; height:100%; }
@@ -23,37 +23,49 @@ html, body { margin:0; height:100%; }
 
 /* Sidebar */
 #sidebar {
-  font-family: 'Fjalla One', sans-serif;
-  font-size: 30px;
+  font-family: 'Oswald', sans-serif; /* Clean, strong for sidebar */
+  font-size: 28px;
 }
 
 /* Sidebar links */
 #sidebar a {
+  font-family: 'Oswald', sans-serif;
   font-size: 18px;
+  text-decoration: none;
+  color: #111;
 }
 
 /* Panel headers (Filters / Legend titles) */
 .panel-header {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Bebas Neue', sans-serif; /* Impactful, clear headers */
   font-size: 22px;
-  letter-spacing: 0.8px;
+  letter-spacing: 1px;
 }
 
 /* Panel content */
 .panel-content {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Inter', sans-serif; /* Clean, readable for details */
   font-size: 14px;
+  line-height: 1.4;
 }
 
 /* Filter dropdowns */
 #sentence-filters select {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Oswald', sans-serif; /* Strong, legible for dropdowns */
   font-size: 14px;
+}
+
+/* Marker popups */
+.leaflet-popup-content {
+  font-family: 'JetBrains Mono', monospace; /* Precise, data-like */
+  font-size: 13px;
 }
 
 /* Burger menu */
 #sidebar-handle {
+  font-family: 'Oswald', sans-serif;
   font-size: 22px;
+  cursor: pointer;
 }
 
 /* Leaflet popups */
