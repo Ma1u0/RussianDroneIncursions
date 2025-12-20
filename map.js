@@ -12,8 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const markerCluster = L.markerClusterGroup();
   map.addLayer(markerCluster);
 
-  // …rest of your map code…
-});
   // Icons
   const icons = {
     droneRed: L.icon({ iconUrl: 'icons/red_drone.png', iconSize: [28,28] }),
