@@ -172,14 +172,7 @@ html, body { margin:0; height:100%; }
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 
-<!-- 1️⃣ Initialize map BEFORE map.js -->
-<script>
-window.map = L.map('map', { zoomControl: false }).setView([20,0],2);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(window.map);
-L.control.zoom({ position: 'bottomleft' }).addTo(window.map);
-</script>
-
-<!-- 2️⃣ Your existing map.js -->
+<!-- Your existing map.js -->
 <script src="map.js"></script>
 
 <!-- 3️⃣ Panel + sidebar JS -->
