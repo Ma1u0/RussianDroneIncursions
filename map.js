@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize map
- const map = L.map('map', {
-  zoomControl: false
-}).setView([20, 0], 2);
+const map = window.map;  // use the global map from HTML
 
 L.control.zoom({
   position: 'bottomleft' // or 'bottomleft'
