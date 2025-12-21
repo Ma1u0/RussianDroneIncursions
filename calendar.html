@@ -49,6 +49,7 @@ html, body {
   font-size: 18px;
 }
 
+/* Burger */
 #sidebar-handle {
   position: fixed;
   top: 20px;
@@ -64,21 +65,22 @@ html, body {
   cursor: pointer;
   font-size: 22px;
   z-index: 1001;
+  transition: left 0.3s ease;
 }
 
-/* =========================
-   LAYOUT
-   ========================= */
-#calendar-container {
-  display: flex;
-  justify-content: center;
-  padding: 40px 20px;
-  gap: 40px;
+.sidebar-open + #sidebar-handle {
+  left: 250px;
 }
 
 /* =========================
    CALENDAR
    ========================= */
+#calendar-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
 #calendar {
   width: 600px;
 }
@@ -106,29 +108,34 @@ html, body {
   gap: 6px;
 }
 
+/* Weekdays */
 .weekday {
   text-align: center;
   font-weight: bold;
 }
 
+/* Days */
 .day {
-  height: 60px;
+  min-height: 60px;
   border: 1px solid #ccc;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: Oswald, sans-serif;
+  cursor: pointer;
   background: white;
   border-radius: 6px;
   transition: background 0.2s;
-  cursor: pointer;
+  position: relative;
 }
 
 .day:hover {
   background: #e0e0e0;
 }
 
+/* Incident colors */
 .day.single {
-  background: yellow;
+  background: #FFD966;
 }
 
 .day.single:hover {
@@ -136,7 +143,7 @@ html, body {
 }
 
 .day.multi {
-  background: red;
+  background: #e74c3c;
   color: white;
 }
 
@@ -144,47 +151,24 @@ html, body {
   background: #c70000;
 }
 
-.day.selected {
-  outline: 3px solid #000;
-}
-
-/* =========================
-   INCIDENT PANEL
-   ========================= */
-#incident-panel {
-  width: 320px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  padding: 16px;
-}
-
-#incident-panel h3 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 22px;
-  margin-top: 0;
-}
-
-.incident-item {
-  padding: 8px;
-  border-bottom: 1px solid #ddd;
-}
-
-.incident-item:last-child {
-  border-bottom: none;
-}
-
-.muted {
-  color: #777;
+/* Incident details */
+.incident-details {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #fffbe6;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 6px;
   font-size: 14px;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
 }
 
-#unknown-incidents-note {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #555;
-  text-align: center;
-  display: none;
+.incident-details a {
+  color: #1a73e8;
+  text-decoration: underline;
 }
 </style>
 </head>
@@ -200,10 +184,8 @@ html, body {
 </div>
 <div id="sidebar-handle">&#9776;</div>
 
-<!-- Main -->
+<!-- Calendar -->
 <div id="calendar-container">
-
-  <!-- Calendar -->
   <div id="calendar">
     <div id="calendar-header">
       <button id="prevMonth">◀</button>
@@ -211,161 +193,152 @@ html, body {
       <select id="yearSelect"></select>
       <button id="nextMonth">▶</button>
     </div>
-
     <div id="calendar-grid"></div>
-
-    <div id="unknown-incidents-note">
-      * Incident(s) in September 2025 had no exact date reported
-    </div>
   </div>
-
-  <!-- Incident panel -->
-  <div id="incident-panel">
-    <h3 id="incident-title">Incidents</h3>
-    <div id="incident-list">
-      <p class="muted">Click a highlighted day</p>
-    </div>
-  </div>
-
 </div>
 
 <script>
 /* =========================
-   SIDEBAR
+   SIDEBAR TOGGLE
    ========================= */
 const sidebar = document.getElementById('sidebar');
 const handle = document.getElementById('sidebar-handle');
 
-handle.onclick = () => {
+handle.addEventListener('click', () => {
   sidebar.classList.toggle('sidebar-open');
   handle.style.left = sidebar.classList.contains('sidebar-open') ? '250px' : '0';
-};
+});
 
 /* =========================
-   INCIDENT COUNTS (colors)
+   INCIDENT DATA
    ========================= */
 const incidentsByDate = {
-  '2025-09-03':1,'2025-09-09':1,'2025-09-19':2,'2025-09-22':2,'2025-09-23':1,
-  '2025-09-24':4,'2025-09-25':5,'2025-09-26':1,'2025-09-28':1,'2025-09-29':1,
-  '2025-10-02':1,'2025-10-03':2,'2025-10-04':2,'2025-10-17':1,'2025-10-19':1,
-  '2025-10-21':1,'2025-10-23':1,'2025-10-24':2,'2025-10-25':2,'2025-10-26':1,
-  '2025-10-27':1,'2025-10-28':1,'2025-10-30':2,'2025-10-31':1,
-  '2025-11-01':4,'2025-11-02':1,'2025-11-04':7,'2025-11-05':3,'2025-11-06':5,
-  '2025-11-07':2,'2025-11-08':3,'2025-11-09':2,'2025-11-10':1,'2025-11-11':1,
-  '2025-11-14':1,'2025-11-19':1,'2025-11-20':1,'2025-11-22':2,'2025-11-24':2,
-  '2025-11-25':2,'2025-11-28':1,'2025-11-29':1,'2025-11-30':1,
-  '2025-12-01':1,'2025-12-04':2,'2025-12-07':1,'2025-12-10':1,'2025-12-11':1,
-  '2025-12-15':2,'2025-12-17':1,'2025-12-19':1,'2025-12-21':1
-};
-
-/* =========================
-   INCIDENT DETAILS
-   ========================= */
-const incidentsByDay = {
-  '2025-09-25': [
-    { title: 'Drone sighting – Aalborg Airport', location: 'Denmark' },
-    { title: 'Airport closure – Copenhagen', location: 'Denmark' }
+  '2025-09-15': [
+    { details: "Drone spotted near military base", link: "#" }
   ],
-  '2025-11-04': [
-    { title: 'Multiple drone sightings', location: 'Germany' }
+  '2025-09-18': [
+    { details: "Multiple drones observed", link: "#" },
+    { details: "Airbase security alerted", link: "#" }
+  ],
+  '2025-10-10': [
+    { details: "Drone over city center", link: "#" }
+  ],
+  '2025-12-20': [
+    { details: "Small UAV crashed in field", link: "#" }
   ]
 };
 
 /* =========================
    CALENDAR LOGIC
    ========================= */
-const grid = document.getElementById('calendar-grid');
 const monthSelect = document.getElementById('monthSelect');
 const yearSelect = document.getElementById('yearSelect');
-const note = document.getElementById('unknown-incidents-note');
+const grid = document.getElementById('calendar-grid');
 
-const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-let currentDate = new Date(2025,8,1);
+const months = [
+  'January','February','March','April','May','June','July','August','September','October','November','December'
+];
 
-months.forEach((m,i)=>{
-  const o=document.createElement('option');
-  o.value=i; o.textContent=m;
-  monthSelect.appendChild(o);
+let currentDate = new Date(2025, 8, 1); // Start in September 2025
+
+// Populate month and year selects
+months.forEach((m, idx) => {
+  const opt = document.createElement('option');
+  opt.value = idx;
+  opt.textContent = m;
+  monthSelect.appendChild(opt);
 });
 
-[2025,2026].forEach(y=>{
-  const o=document.createElement('option');
-  o.value=y; o.textContent=y;
-  yearSelect.appendChild(o);
+[2025, 2026].forEach(y => {
+  const opt = document.createElement('option');
+  opt.value = y;
+  opt.textContent = y;
+  yearSelect.appendChild(opt);
 });
 
-function renderCalendar(){
-  grid.innerHTML='';
-  const y=currentDate.getFullYear();
-  const m=currentDate.getMonth();
+function renderCalendar() {
+  grid.innerHTML = '';
+  const currentYear = currentDate.getFullYear();
+  const currentMonth = currentDate.getMonth();
 
-  monthSelect.value=m;
-  yearSelect.value=y;
-  note.style.display=(y===2025 && m===8)?'block':'none';
+  monthSelect.value = currentMonth;
+  yearSelect.value = currentYear;
 
-  ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].forEach(d=>{
-    const e=document.createElement('div');
-    e.className='weekday';
-    e.textContent=d;
-    grid.appendChild(e);
+  // Weekday headers
+  ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].forEach(d => {
+    const el = document.createElement('div');
+    el.className = 'weekday';
+    el.textContent = d;
+    grid.appendChild(el);
   });
 
-  const first=new Date(y,m,1);
-  const offset=(first.getDay()+6)%7;
-  const days=new Date(y,m+1,0).getDate();
+  const firstDay = new Date(currentYear, currentMonth, 1);
+  const startOffset = (firstDay.getDay()+6)%7; // Monday=0
+  const daysInMonth = new Date(currentYear, currentMonth+1,0).getDate();
 
-  for(let i=0;i<offset;i++) grid.appendChild(document.createElement('div'));
+  // Empty cells
+  for(let i=0;i<startOffset;i++) grid.appendChild(document.createElement('div'));
 
-  for(let d=1;d<=days;d++){
-    const el=document.createElement('div');
+  // Days
+  for(let day=1; day<=daysInMonth; day++){
+    const el = document.createElement('div');
     el.className='day';
-    el.textContent=d;
-    const key=`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    el.textContent=day;
 
-    if(incidentsByDate[key]===1) el.classList.add('single');
-    if(incidentsByDate[key]>1) el.classList.add('multi');
+    const key=`${currentYear}-${String(currentMonth+1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
+    if(incidentsByDate[key]) {
+      el.classList.add(incidentsByDate[key].length>1 ? 'multi' : 'single');
+    }
 
-    el.onclick=()=>selectDay(el,key);
+    // Click to toggle incident details
+    el.addEventListener('click', () => {
+      // Remove any existing details inside this day
+      const existing = el.querySelector('.incident-details');
+      if(existing) {
+        existing.remove();
+        return;
+      }
+
+      if(!incidentsByDate[key]) return;
+
+      const detailsDiv = document.createElement('div');
+      detailsDiv.className = 'incident-details';
+
+      incidentsByDate[key].forEach(inc => {
+        const p = document.createElement('p');
+        p.innerHTML = inc.link ? `<a href="${inc.link}" target="_blank">${inc.details}</a>` : inc.details;
+        detailsDiv.appendChild(p);
+      });
+
+      el.appendChild(detailsDiv);
+    });
+
     grid.appendChild(el);
   }
 }
 
-function selectDay(el,key){
-  document.querySelectorAll('.day').forEach(d=>d.classList.remove('selected'));
-  el.classList.add('selected');
-
-  const list=document.getElementById('incident-list');
-  const title=document.getElementById('incident-title');
-  title.textContent=`Incidents on ${key}`;
-  list.innerHTML='';
-
-  const items=incidentsByDay[key];
-  if(!items){
-    list.innerHTML='<p class="muted">No detailed incidents recorded</p>';
-    return;
-  }
-
-  items.forEach(i=>{
-    const div=document.createElement('div');
-    div.className='incident-item';
-    div.innerHTML=`<b>${i.title}</b><br><span class="muted">${i.location}</span>`;
-    list.appendChild(div);
-  });
-}
-
-document.getElementById('prevMonth').onclick=()=>{
-  currentDate.setMonth(currentDate.getMonth()-1);
+// Navigation buttons
+document.getElementById('prevMonth').onclick = () => {
+  currentDate.setMonth(currentDate.getMonth() - 1);
   if(currentDate.getFullYear()===2025 && currentDate.getMonth()<8) currentDate.setMonth(8);
   renderCalendar();
 };
 
-document.getElementById('nextMonth').onclick=()=>{
-  currentDate.setMonth(currentDate.getMonth()+1);
+document.getElementById('nextMonth').onclick = () => {
+  currentDate.setMonth(currentDate.getMonth() + 1);
   renderCalendar();
 };
 
-monthSelect.onchange=()=>{currentDate.setMonth(+monthSelect.value);renderCalendar();}
-yearSelect.onchange=()=>{currentDate.setFullYear(+yearSelect.value);renderCalendar();}
+// Month/year select change
+monthSelect.onchange = () => {
+  currentDate.setMonth(parseInt(monthSelect.value));
+  renderCalendar();
+};
+yearSelect.onchange = () => {
+  currentDate.setFullYear(parseInt(yearSelect.value));
+  if(currentDate.getFullYear()===2025 && currentDate.getMonth()<8) currentDate.setMonth(8);
+  renderCalendar();
+};
 
 renderCalendar();
 </script>
