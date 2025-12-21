@@ -1752,6 +1752,22 @@ document.addEventListener('DOMContentLoaded', () => {
     link: "https://www.reuters.com/world/romania-scrambles-fighter-jets-after-drones-breach-its-airspace-2025-11-25/",
     country: "Puiești, Romania 🇷🇴",
   },
+
+   {
+    lat: 45.43252,
+    lng: 25.13196,
+    icon: icons.droneYellow,
+    type: 'drone',      // used for filtering
+    risk: 'yellow',
+    place: 'others',
+    year: '2025',
+     month: '12',
+    popupType: 'Drone incursion / crash site ', // shown in popup
+    date: ' 21 Dec 2025, 10:40, ',
+    details: "Police was notified about a crashed drone by a local citizen on a hunting trip. The drone is two meters wide, has a parachute attached, and is intact.",
+    link: "https://www.digi24.ro/stiri/actualitate/evenimente/drona-de-2-metri-cu-o-parasuta-atasata-gasita-agatata-in-copacii-de-pe-muntele-stramtu-in-leresti-arges-3556063",
+    country: "Strâmtu Mountain, Argeș County, Romania 🇷🇴",
+  },
     
  /* =========================
        S P A I N
