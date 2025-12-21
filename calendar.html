@@ -153,7 +153,8 @@ html, body {
     </div>
     <div id="calendar-grid"></div>
 
-<div id="unknown-incidents-note" style="margin-top:10px; font-size:14px; color:#555;">
+<div id="unknown-incidents-note" 
+     style="margin-top:10px; font-size:14px; color:#555; display:none;">
   * Incidents reported in September 2025 with no exact date
 </div>
     
@@ -218,16 +219,13 @@ function updateNavButtons() {
   nextBtn.disabled = (currentYear === 2026 && currentMonth === 11);
 }
 
-function renderCalendar() {
-  grid.innerHTML = '';
-
-  // Weekdays
-  weekdays.forEach(d=>{
-    const el = document.createElement('div');
-    el.className='weekday';
-    el.textContent=d;
-    grid.appendChild(el);
-  });
+// Show note only in September 2025
+const unknownNote = document.getElementById('unknown-incidents-note');
+if (currentDate.getFullYear() === 2025 && currentDate.getMonth() === 8) { // 8 = September
+  unknownNote.style.display = 'block';
+} else {
+  unknownNote.style.display = 'none';
+}
 
   const firstDay = new Date(currentYear, currentMonth,1);
   const startOffset = (firstDay.getDay()+6)%7; // Monday=0
