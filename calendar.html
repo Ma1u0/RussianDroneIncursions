@@ -79,6 +79,7 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   padding: 20px;
   margin-left: 40px;
 }
@@ -93,33 +94,45 @@ html, body {
 
 #calendar-header button, #calendar-header select {
   font-size: 18px;
-  padding: 4px 8px;
+  padding: 6px 10px;
   cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: white;
 }
 
 #calendar-grid {
   margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, 60px);
+  grid-auto-rows: 60px;
   gap: 6px;
-  max-width: 600px;
+  justify-content: center;
 }
 
 /* Weekdays */
 .weekday {
   text-align: center;
   font-weight: bold;
+  line-height: 1.2;
+  font-family: 'Bebas Neue', sans-serif;
 }
 
 /* Days */
 .day {
-  height: 60px;
   border: 1px solid #ccc;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: Oswald, sans-serif;
   cursor: default;
   background: white;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.day:hover {
+  background: #e0e0e0;
 }
 
 /* Incident colors */
@@ -262,7 +275,7 @@ document.getElementById('prevMonth').onclick = () => {
   let m = parseInt(monthSelect.value);
   let y = parseInt(yearSelect.value);
   if(m===0){ m=11; y--; } else m--;
-  if(y<2025) return; // prevent before 2025
+  if(y<2025) return;
   monthSelect.value = m; yearSelect.value = y;
   renderCalendar();
 };
@@ -271,7 +284,7 @@ document.getElementById('nextMonth').onclick = () => {
   let m = parseInt(monthSelect.value);
   let y = parseInt(yearSelect.value);
   if(m===11){ m=0; y++; } else m++;
-  if(y>2026) return; // prevent after 2026
+  if(y>2026) return;
   monthSelect.value = m; yearSelect.value = y;
   renderCalendar();
 };
