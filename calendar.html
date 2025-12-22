@@ -211,7 +211,7 @@ function getIncidentTypes(incidents) {
     if (t.includes('drone')) types.add('drone');
     if (t.includes('jet') || t.includes('airspace')) types.add('jet');
     if (t.includes('balloon')) types.add('balloon');
-    if  t.includes('border')) types.add('border');
+    if (t.includes('border')) types.add('border');
   });
   return [...types];
 }
