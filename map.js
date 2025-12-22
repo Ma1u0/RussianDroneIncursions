@@ -642,8 +642,8 @@ document.addEventListener('DOMContentLoaded', () => {
     place: 'airport',
     year: '2025',
      month: '09',
-    popupType: 'Unverified Drone sighting / airspace closure ', // shown in popup
-    date: '25 Sep 2025, Reported 04:21, airspace closed 04:40 - ~05:50',
+    popupType: 'Unverified Drone sighting / airport closure ', // shown in popup
+    date: '25 Sep 2025, Reported 04:21, airport closed 04:40 - ~05:50',
     details: "The police was unable to verify the drone sighting",
     link: "https://www.dr.dk/nyheder/indland/droner-set-over-koebenhavns-lufthavn?focusId=10235626",
     country: "Billund Airport, Denmark 🇩🇰",
