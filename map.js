@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
   month: '11',
   country: "Kleine-Brogel Air Base, Belgium 🇧🇪",
 
-  note: "Kleine-Brogel is a NATO-used base and home to US nukes <br><br> The Belgian security service considers Russia to be behind the drones",
+  note: "Kleine-Brogel is a NATO-used base and is believed to be home to US nuclear weapons <br><br> The Belgian security service considers Russia to be behind the drones",
   noteLink: "https://www.vrt.be/vrtnws/en/2025/11/05/belgian-security-services-convinced-russia-is-behind-the-drone-i/",
 
   incidents: [
@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
     year: '2025',
     month: '11',
     popupType: 'Drone sighting ', // shown in popup
-    date: '01 or 02 Nov 2025',
+    date: 'Weekend of 01-02 Nov 2025',
     details: "Drones were spotted over the airfield <br> Beverlo is a former military airfield ",
     link: "https://www.bbc.com/news/articles/c20e8qzllewo",
     country: "Beverlo Airfield, Belgium 🇧🇪",
@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
     year: '2025',
     month: '11',
     popupType: 'Drone sighting ', // shown in popup
-    date: '4 Nov 2025, ~21:30 ',
+    date: '04 Nov 2025, ~21:30 ',
     details: "Police and military security services confirmed the sighting of four drones over the base ",
     link: "https://www.vrt.be/vrtnws/nl/2025/11/05/drones-boven-luchtmachtbasis-schaffen/",
     country: "Schaffen air base, Belgium 🇧🇪",
@@ -342,7 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
   month: '11',
   country: "Brussels Airport, Belgium 🇧🇪",
 
-  note: "Liège airport is a major cargo hub <br><br> The Belgian security service considers Russia to be behind the drones",
+  note: "The Belgian security service considers Russia to be behind the drones",
   noteLink: "https://www.vrt.be/vrtnws/en/2025/11/05/belgian-security-services-convinced-russia-is-behind-the-drone-i/",
 
   incidents: [
@@ -442,7 +442,7 @@ document.addEventListener('DOMContentLoaded', () => {
     month: '11',
     popupType: 'Drone sighting ', // shown in popup
     date: ' 09 Nov 2025, ~22:00 - ~23:00 ',
-    details: "Three drones have been reported shortly before 22:00, later the two more drones have been discovered",
+    details: "Three drones have been reported shortly before 22:00, later two more drones have been discovered",
     link: "https://www.politico.eu/article/drones-spotted-belgium-nuclear-plant-doel-airspace-incursions/",
     country: "Doel Nuclear Power Plant, Belgium 🇧🇪",
     note: "The Belgian security service considers Russia to be behind the drones",
@@ -520,9 +520,9 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       popupType: 'Drone sighting / airport closure',
-      date: '14 Nov 2025, 22:10–23:00',
+      date: '14 Nov 2025, 21:30–23:10',
       details: "Air traffic halted after possible drone sighting",
-      link: "https://nordicstoday.com/article/aalborg-airport-airspace-closed-drone-activity"
+      link: "https://www.anews.com.tr/europe/2025/11/17/drone-alert-temporarily-shuts-danish-airport"
     }
   ]
 },
@@ -767,9 +767,9 @@ document.addEventListener('DOMContentLoaded', () => {
     risk: 'yellow',
     place: 'infrastructure',
     year: '2025',
-     month: '11',
+     month: '09',
     popupType: 'Drone sighting ', // shown in popup
-    date: ' 24 Nov 2025 ',
+    date: ' 20/21 Sep 2025 ',
     details: "An unknown perpetrator flew a drone over the power plant",
     link: "https://yle.fi/a/74-20185326",
     country: "Valajaskoski Power Plant, Finland 🇫🇮"
@@ -1125,13 +1125,13 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       popupType: 'Weather balloons / Smuggle balloons / Airport closure',
-      date: '24 / 25 Nov 2025, 18:55 - 00:25; 01:40 - 03:25',
+      date: '23 / 24 Nov 2025, 18:55 - 00:25; 01:40 - 03:25',
       details: "Air traffic was halted due to balloons moving in he direction of Vilnius Airport",
       link: "https://www.vilnius-airport.lt/en/news/vilnius-airport-operations-disrupted-on-november-23-24"
     },
     {
       popupType: 'Weather balloons / Smuggle balloons / Airport closure',
-      date: ' 28 / 29 Nov 2025, 23:15 - 07:03; 01:40 - 03:25',
+      date: ' 28 Nov 2025, 23:15 - 07:03',
       details: "Air traffic was halted due to balloons moving in he direction of Vilnius Airport",
       link: "https://www.vilnius-airport.lt/en/news/airspace-restrictions-at-vilnius-airport-on-november-28-29"
     },
@@ -1197,7 +1197,7 @@ document.addEventListener('DOMContentLoaded', () => {
   month: '11',
   country: "Volkel Air Base, Netherlands 🇳🇱",
 
-  note: "Volkel is home to Dutch F-35 jets and US nuclear weapons",
+  note: "Volkel is is believed to be home to Dutch F-35 jets and US nuclear weapons",
 
   incidents: [
     {
@@ -1712,7 +1712,7 @@ document.addEventListener('DOMContentLoaded', () => {
     place: 'others',
     year: '2025',
      month: '11',
-    popupType: 'Drone crash ', // shown in popup
+    popupType: 'Drone incursion / crash site', // shown in popup
     date: '11 Nov 2025',
     details: "Russian drone entered Romanian airspace but due to the weather NATO jets weren't able to be scrambled; the remains were found 5km deep in Romania's territory",
     link: "https://www.reuters.com/business/aerospace-defense/romania-finds-suspected-drone-fragments-after-russian-attack-ukraine-2025-11-11/",
@@ -1730,7 +1730,7 @@ document.addEventListener('DOMContentLoaded', () => {
      month: '11',
     popupType: 'Drone incursion ', // shown in popup
     date: '19 Nov 2025, 00:20 - 01:00 ',
-    details: "Russian drone flew up to ~8 km into Romanian airspace where it disappeared from the radars. The drone later reappeared in Moldovan airspace from where it reentered Romania and was spotted in Foltești, Galați county again <br> It is unknown what eventually happened to it",
+    details: "Russian drone flew up to ~8 km into Romanian airspace where it disappeared from the radars. The drone later reappeared in Moldovan airspace from where it reentered Romania and was spotted in Foltești, Galați county again. Two German Eurofighters were scrambled <br> It is unknown what eventually happened to it",
     link: "https://www.digi24.ro/stiri/actualitate/mapn-a-ridicat-doua-avioane-de-lupta-in-timpul-noptii-dupa-ce-o-drona-a-intrat-in-spatiul-aerian-national-a-fost-emis-mesaj-ro-alert-3509181",
     country: "Periprava / Chilia Veche / Foltești, Romania 🇷🇴",
   },
