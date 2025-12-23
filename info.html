@@ -2,20 +2,23 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Info</title>
+<title>Info Page</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Bebas+Neue&family=Oswald&display=swap" rel="stylesheet">
 
 <style>
 html, body {
   margin: 0;
+  height: 100%;
   font-family: Oswald, sans-serif;
   background: #f9f9f9;
-  min-height: 100vh;
 }
 
-/* Sidebar same style as main site */
+/* =========================
+   SIDEBAR
+   ========================= */
 #sidebar {
   position: fixed;
   top: 0;
@@ -26,10 +29,15 @@ html, body {
   box-shadow: 2px 0 10px rgba(0,0,0,0.25);
   z-index: 1000;
   font-family: 'Fjalla One', sans-serif;
-  padding-top: 20px;
+  transition: transform 0.3s ease;
+  transform: translateX(0); /* sidebar starts fully open */
 }
 
-#sidebar-content a {
+#sidebar-content {
+  padding: 20px 20px 20px 25px; /* more left padding to align with calendar */
+}
+
+#sidebar a {
   display: block;
   margin-bottom: 12px;
   color: #000;
@@ -52,26 +60,24 @@ html, body {
   cursor: pointer;
   font-size: 22px;
   z-index: 1001;
+  transition: transform 0.3s ease;
 }
 
-/* Info content */
+/* =========================
+   INFO CONTENT
+   ========================= */
 #info-container {
-  margin-left: 270px;
+  margin-left: 270px; /* space for sidebar */
   padding: 40px 20px;
-  max-width: 900px;
 }
 
-h1, h2 {
+h1, h2, h3 {
   font-family: 'Bebas Neue', sans-serif;
 }
 
 p {
-  margin-bottom: 16px;
-  line-height: 1.6;
-}
-
-ul {
-  margin-left: 20px;
+  margin-bottom: 15px;
+  line-height: 1.5;
 }
 </style>
 </head>
@@ -89,44 +95,43 @@ ul {
 
 <div id="info-container">
   <h1>Information</h1>
-  
-  <h2>About the Incidents</h2>
-  <p>This calendar tracks drone, balloon, and aircraft sightings in Europe, with a focus on incidents involving Russian activity.</p>
-  
-  <h2>Color Codes</h2>
+  <p>This page explains how incidents are reported and tracked. Here you can learn more about the color coding, icons, and reporting process.</p>
+
+  <h2>Incident Reporting</h2>
+  <p>Incidents are categorized by type (drone, jet, balloon, border) and location. Each incident entry includes:</p>
   <ul>
-    <li>🟥 Single incident</li>
-    <li>🟨 Multiple incidents</li>
-    <li>🔴 Actor confirmed to be Russian</li>
-    <li>🟠 Actor suspected to be Russian</li>
-    <li>🟡 Actor unknown</li>
-    <li>🟢 Sighting unverified</li>
+    <li>Country and city/region</li>
+    <li>Date and time</li>
+    <li>Type of incident</li>
+    <li>Details and links to sources</li>
+    <li>Notes on confirmation or suspected actor</li>
   </ul>
 
-  <h2>Icons</h2>
-  <p>The calendar uses icons to quickly indicate the type of incident:</p>
-  <ul>
-    <li>🛸 Drone</li>
-    <li>✈️ Jet / aircraft</li>
-    <li>🎈 Balloon</li>
-    <li>🪖 Border / military</li>
-  </ul>
+  <h2>Legend / Colors</h2>
+  <p>Colors indicate incident count and actor verification:</p>
+  <div style="display: flex; gap: 15px; margin-top: 10px;">
+    <span style="display:inline-block;width:20px;height:20px;background:#f7e769;border:1px solid #ccc;border-radius:4px;"></span> Single incident
+    <span style="display:inline-block;width:20px;height:20px;background:#e03b3b;border:1px solid #ccc;border-radius:4px;"></span> Multiple incidents
+  </div>
+  <div style="display: flex; gap: 15px; margin-top: 10px;">
+    <span style="display:inline-block;width:15px;height:15px;background:red;border-radius:50%;"></span> Actor confirmed Russian
+    <span style="display:inline-block;width:15px;height:15px;background:orange;border-radius:50%;"></span> Actor suspected Russian
+    <span style="display:inline-block;width:15px;height:15px;background:yellow;border-radius:50%;"></span> Actor unknown
+    <span style="display:inline-block;width:15px;height:15px;background:green;border-radius:50%;"></span> Sighting unverified
+  </div>
 
-  <h2>Sources</h2>
-  <p>All incidents are sourced from publicly available media reports and security services.</p>
-  
   <h2>Notes</h2>
-  <p>Times, locations, and actor confirmation are based on available information and may be subject to updates.</p>
+  <p>All incidents are verified as much as possible with publicly available sources. Times are local to the incident location.</p>
 </div>
 
 <script>
 /* =========================
-   SIDEBAR TOGGLE
-========================= */
+   SIDEBAR LOGIC
+   ========================= */
 const sidebar = document.getElementById('sidebar');
 const handle = document.getElementById('sidebar-handle');
 const container = document.getElementById('info-container');
-let sidebarOpen = true;
+let sidebarOpen = true; // start open
 
 handle.addEventListener('click', () => {
   sidebarOpen = !sidebarOpen;
