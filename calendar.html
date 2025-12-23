@@ -18,7 +18,7 @@ html, body {
 
 /* =========================
    SIDEBAR
-========================= */
+   ========================= */
 #sidebar {
   position: fixed;
   top: 0;
@@ -30,10 +30,11 @@ html, body {
   z-index: 1000;
   font-family: 'Fjalla One', sans-serif;
   transition: transform 0.3s ease;
+  transform: translateX(0); /* sidebar starts fully open */
 }
 
 #sidebar-content {
-  padding: 20px;
+  padding: 20px 20px 20px 25px; /* more left padding to align with calendar */
 }
 
 #sidebar a {
@@ -63,37 +64,21 @@ html, body {
 }
 
 /* =========================
-   MAIN CONTENT
-========================= */
+   INFO CONTENT
+   ========================= */
 #info-container {
-  margin-left: 270px; /* start with sidebar open */
+  margin-left: 270px; /* space for sidebar */
   padding: 40px 20px;
-  transition: margin-left 0.3s ease;
 }
 
-h1 {
+h1, h2, h3 {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 32px;
-  margin-bottom: 20px;
-}
-
-h2 {
-  font-family: 'Fjalla One', sans-serif;
-  font-size: 24px;
-  margin-top: 30px;
-  margin-bottom: 10px;
 }
 
 p {
+  margin-bottom: 15px;
   line-height: 1.5;
-  margin-bottom: 15px;
 }
-
-ul {
-  margin-left: 20px;
-  margin-bottom: 15px;
-}
-
 </style>
 </head>
 
@@ -106,50 +91,47 @@ ul {
     <a href="info.html">ℹ️ Info</a>
   </div>
 </div>
-
 <div id="sidebar-handle">&#9776;</div>
 
 <div id="info-container">
-  <h1>Incident Info</h1>
+  <h1>Information</h1>
+  <p>This page explains how incidents are reported and tracked. Here you can learn more about the color coding, icons, and reporting process.</p>
 
-  <h2>About This Page</h2>
-  <p>This page provides information on drone and airspace incidents. It explains how incidents are recorded, categorized, and what the symbols mean in the calendar and map views.</p>
-
-  <h2>Incident Types</h2>
+  <h2>Incident Reporting</h2>
+  <p>Incidents are categorized by type (drone, jet, balloon, border) and location. Each incident entry includes:</p>
   <ul>
-    <li>🟡 Unknown actor – incidents where the responsible party cannot be confirmed.</li>
-    <li>🟠 Suspected Russian – incidents suspected to involve Russian actors.</li>
-    <li>🔴 Confirmed Russian – incidents confirmed to involve Russian actors.</li>
-    <li>Drone, Jet, Balloon, or Border – categorized based on the type of object involved.</li>
+    <li>Country and city/region</li>
+    <li>Date and time</li>
+    <li>Type of incident</li>
+    <li>Details and links to sources</li>
+    <li>Notes on confirmation or suspected actor</li>
   </ul>
 
-  <h2>Reporting Times</h2>
-  <p>Each incident includes the date and time it was observed. If multiple sightings occurred in one day, all relevant times are noted in the incident details.</p>
+  <h2>Legend / Colors</h2>
+  <p>Colors indicate incident count and actor verification:</p>
+  <div style="display: flex; gap: 15px; margin-top: 10px;">
+    <span style="display:inline-block;width:20px;height:20px;background:#f7e769;border:1px solid #ccc;border-radius:4px;"></span> Single incident
+    <span style="display:inline-block;width:20px;height:20px;background:#e03b3b;border:1px solid #ccc;border-radius:4px;"></span> Multiple incidents
+  </div>
+  <div style="display: flex; gap: 15px; margin-top: 10px;">
+    <span style="display:inline-block;width:15px;height:15px;background:red;border-radius:50%;"></span> Actor confirmed Russian
+    <span style="display:inline-block;width:15px;height:15px;background:orange;border-radius:50%;"></span> Actor suspected Russian
+    <span style="display:inline-block;width:15px;height:15px;background:yellow;border-radius:50%;"></span> Actor unknown
+    <span style="display:inline-block;width:15px;height:15px;background:green;border-radius:50%;"></span> Sighting unverified
+  </div>
 
-  <h2>Sources</h2>
-  <p>All incidents are sourced from verified news reports and security agencies. Source links are provided in each incident's detail popup.</p>
-
-  <h2>How to Use</h2>
-  <ul>
-    <li>Click on a day in the calendar to see detailed incidents for that date.</li>
-    <li>Hover over the colored squares or round symbols in the legend to understand the actor and type.</li>
-    <li>Use the sidebar to navigate between the Map, Calendar, and Info pages.</li>
-  </ul>
+  <h2>Notes</h2>
+  <p>All incidents are verified as much as possible with publicly available sources. Times are local to the incident location.</p>
 </div>
 
 <script>
 /* =========================
-   SIDEBAR TOGGLE
-========================= */
+   SIDEBAR LOGIC
+   ========================= */
 const sidebar = document.getElementById('sidebar');
 const handle = document.getElementById('sidebar-handle');
 const container = document.getElementById('info-container');
-let sidebarOpen = true;
-
-// Initial positions
-sidebar.style.transform = 'translateX(0)';
-handle.style.transform = 'translateX(250px)';
-container.style.marginLeft = '270px';
+let sidebarOpen = true; // start open
 
 handle.addEventListener('click', () => {
   sidebarOpen = !sidebarOpen;
