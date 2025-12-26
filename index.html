@@ -13,7 +13,7 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: Oswald, sans-serif;
-  background: #f9f9f9;
+  background: #f4f5f7;
   color: #111;
 }
 
@@ -27,7 +27,7 @@ html, body {
   width: 250px;
   height: 100%;
   background: #fff;
-  box-shadow: 2px 0 10px rgba(0,0,0,0.25);
+  box-shadow: 2px 0 10px rgba(0,0,0,0.15);
   transform: translateX(-250px);
   transition: transform 0.3s ease;
   z-index: 1000;
@@ -35,70 +35,100 @@ html, body {
 }
 
 #sidebar-content {
-  padding: 20px 25px;
+  padding: 25px;
 }
 
 #sidebar a {
   display: block;
-  margin-bottom: 12px;
-  color: #000;
+  margin-bottom: 18px;
+  color: #111;
   text-decoration: none;
   font-size: 18px;
+  transition: color 0.2s;
+}
+
+#sidebar a:hover {
+  color: #0077cc;
 }
 
 #sidebar-handle {
   position: fixed;
   top: 20px;
   left: 0;
-  width: 32px;
-  height: 42px;
-  background: white;
+  width: 36px;
+  height: 44px;
+  background: #fff;
   border-radius: 0 6px 6px 0;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 2px 0 6px rgba(0,0,0,0.3);
   cursor: pointer;
-  font-size: 22px;
+  font-size: 24px;
   z-index: 1001;
   transition: transform 0.3s ease;
 }
 
 /* =========================
-   HOMEPAGE LAYOUT
+   MAIN CONTENT
    ========================= */
 #main-content {
   margin-left: 0;
-  padding: 60px 20px 20px 20px;
+  padding: 60px 20px 40px 20px;
   transition: margin-left 0.3s ease;
-  max-width: 900px;
+  max-width: 1000px;
   margin-right: auto;
   margin-left: auto;
 }
 
-.section {
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 25px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+.header {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-.section h2 {
-  margin-top: 0;
+.header h1 {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 24px;
+  font-size: 36px;
+  margin: 0;
+  color: #222;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  flex: 1 1 280px;
+  max-width: 300px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+.card h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
   margin-bottom: 12px;
+  color: #0077cc;
+}
+
+.card .content {
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .incident-item {
-  margin-bottom: 10px;
-  padding-bottom: 6px;
-  border-bottom: 1px solid #ddd;
-}
-
-.incident-item:last-child {
-  border-bottom: none;
+  margin-bottom: 8px;
 }
 
 .incident-item b {
@@ -107,9 +137,10 @@ html, body {
 }
 
 .incident-item a {
-  color: blue;
+  color: #0077cc;
   text-decoration: underline;
 }
+
 </style>
 </head>
 
@@ -125,19 +156,25 @@ html, body {
 <div id="sidebar-handle">&#9776;</div>
 
 <div id="main-content">
-  <div class="section" id="this-week">
-    <h2>This Week</h2>
-    <div id="this-week-list"><i>Loading...</i></div>
+  <div class="header">
+    <h1>Incident Tracker</h1>
   </div>
 
-  <div class="section" id="last-incident">
-    <h2>Last Incident</h2>
-    <div id="last-incident-info"><i>Loading...</i></div>
-  </div>
+  <div class="cards">
+    <div class="card" id="this-week-card">
+      <h2>This Week</h2>
+      <div class="content" id="this-week-list"><i>Loading...</i></div>
+    </div>
 
-  <div class="section" id="incident-counter">
-    <h2>Incident Counter</h2>
-    <div id="incident-counter-number"><i>Loading...</i></div>
+    <div class="card" id="last-incident-card">
+      <h2>Last Incident</h2>
+      <div class="content" id="last-incident-info"><i>Loading...</i></div>
+    </div>
+
+    <div class="card" id="incident-counter-card">
+      <h2>Total Incidents</h2>
+      <div class="content" id="incident-counter-number"><i>Loading...</i></div>
+    </div>
   </div>
 </div>
 
@@ -172,7 +209,7 @@ const incidentsData = {
       country: "🟡 Gothenburg Landvetter Airport, Sweden 🇸🇪",
       popupType: "Drone sighting / airport closure",
       date: "24 Dec 2025, 17:41 - 21:30",
-      details: "One or more drones have been observed at the coast, close to the airport; air traffic resumed at around 21:30",
+      details: "One or more drones observed near the airport; air traffic resumed at ~21:30",
       link: "https://www.reuters.com/world/traffic-halted-swedish-city-gothenburgs-airport-after-drone-sighting-daily-2025-11-06/"
     }
   ],
@@ -181,7 +218,7 @@ const incidentsData = {
       country: "🟠 Brussels Airport, Belgium 🇧🇪",
       popupType: "Drone sighting / airspace closure",
       date: "25 Dec 2025, 21:20 - 22:00",
-      details: "The airport was closed following a drone sighting over the airport",
+      details: "Airport closed following drone sighting over the airport",
       link: "https://vrtnws.be/p.Pqn1MwxDy#bGl2ZWJsb2dfaXRlbV8xNzYyNDYyMDI5NDQw"
     }
   ]
@@ -204,7 +241,7 @@ function formatIncidentItem(i){
 function getMonday(d) {
   d = new Date(d);
   const day = d.getDay();
-  const diff = (day === 0 ? -6 : 1) - day; // adjust when Sunday
+  const diff = (day === 0 ? -6 : 1) - day;
   return new Date(d.setDate(d.getDate() + diff));
 }
 
