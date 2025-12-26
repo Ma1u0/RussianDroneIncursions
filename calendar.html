@@ -73,6 +73,7 @@ html, body {
   gap: 40px;
   margin-left: 0;
   transition: margin-left 0.3s ease;
+  flex-wrap: wrap; /* Added for mobile wrapping */
 }
 
 #calendar {
@@ -86,6 +87,7 @@ html, body {
   gap: 10px;
   font-family: 'Bebas Neue', sans-serif;
   font-size: 28px;
+  flex-wrap: wrap; /* Allows buttons and selects to wrap on small screens */
 }
 
 #calendar-header select,
@@ -209,6 +211,65 @@ html, body {
   font-style: italic;
   margin-top: 10px;
 }
+
+/* =========================
+   MOBILE RESPONSIVENESS
+========================= */
+@media (max-width: 800px) {
+  #calendar-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 10px;
+  }
+
+  #calendar {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  #incident-display {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 20px;
+  }
+
+  #calendar-grid {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  #calendar-header {
+    font-size: 24px;
+    gap: 5px;
+  }
+
+  #calendar-header select,
+  #calendar-header button {
+    font-size: 16px;
+    padding: 4px 6px;
+  }
+
+  #sidebar-handle {
+    top: 10px;
+    width: 28px;
+    height: 36px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  #calendar-grid {
+    grid-template-columns: repeat(7, minmax(30px, 1fr));
+  }
+
+  .day {
+    height: 50px;
+    font-size: 12px;
+  }
+
+  #calendar-header {
+    flex-direction: column;
+  }
+}
 </style>
 </head>
 
@@ -280,7 +341,7 @@ function getIncidentTypes(incidents) {
 ========================= */
 const incidentsData = {
 
- /* =========================
+   /* =========================
        S E P T E M B E R 
     ========================= */
   
