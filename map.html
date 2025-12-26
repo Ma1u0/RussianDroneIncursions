@@ -11,12 +11,12 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"/>
 
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&family=Bebas+Neue&family=Inter:wght@400;500&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&family=Bebas+Neue&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-html, body { margin:0; height:100%; font-family: 'Oswald', sans-serif; }
+html, body { margin:0; height:100%; }
 
-/* ===== Sidebar ===== */
+/* Sidebar */
 #sidebar {
   position: fixed;
   top:0;
@@ -28,6 +28,7 @@ html, body { margin:0; height:100%; font-family: 'Oswald', sans-serif; }
   transform: translateX(-250px);
   transition: transform 0.3s ease;
   z-index:1001;
+  font-family: 'Oswald', sans-serif;
 }
 
 #sidebar.sidebar-open { transform: translateX(0); }
@@ -61,7 +62,7 @@ html, body { margin:0; height:100%; font-family: 'Oswald', sans-serif; }
   z-index:1002;
 }
 
-/* ===== Map ===== */
+/* Map fills viewport */
 #map { 
   position:absolute; 
   top:0; 
@@ -71,7 +72,7 @@ html, body { margin:0; height:100%; font-family: 'Oswald', sans-serif; }
   z-index:0;
 }
 
-/* ===== Panels ===== */
+/* Panels */
 .panel {
   position:absolute;
   background:white;
@@ -83,21 +84,20 @@ html, body { margin:0; height:100%; font-family: 'Oswald', sans-serif; }
 .panel-header {
   display:flex;
   justify-content:space-between;
-  align-items:center;
   padding:8px;
+  font-weight:bold;
+  background:#f0f0f0;
   font-family: 'Bebas Neue', sans-serif;
   font-size:22px;
   letter-spacing:1px;
-  background:#f0f0f0;
-  font-weight:normal;
 }
 
 .panel button { background:none; border:none; font-size:16px; cursor:pointer; }
 
-.panel-content { 
-  padding:8px; 
-  font-family: 'Inter', sans-serif; 
-  font-size:14px; 
+.panel-content {
+  padding:8px;
+  font-family: 'Inter', sans-serif;
+  font-size:14px;
   line-height:1.4;
 }
 
@@ -111,23 +111,26 @@ html, body { margin:0; height:100%; font-family: 'Oswald', sans-serif; }
 #sentence-filters { display:flex; flex-wrap:wrap; gap:6px; align-items:center; font-size:14px; }
 #sentence-filters select { padding:4px 6px; }
 
-/* Legend Panel */
+/* Legend */
 #legend { top:10px; right:10px; width:300px; }
 #legend.collapsed { width:150px; height:40px; }
 #legend.collapsed .panel-content { display:none; }
 .legend-row { margin-bottom:6px; }
 .legend-row img { width:26px; vertical-align:middle; margin-right:6px; }
 
-/* ===== Leaflet popups ===== */
+/* Restore default Leaflet popup styling */
 .leaflet-popup-content {
-  font-family: 'JetBrains Mono', monospace !important;
-  font-size: 13px !important;
-  line-height: 1.4 !important;
-  margin:0 !important;
-  padding:2px 6px !important;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
 }
 
-.leaflet-popup-content b { font-size:16px !important; }
+.leaflet-popup-content b {
+  font-weight: bold;
+  font-size: inherit;
+}
 </style>
 </head>
 <body>
@@ -230,11 +233,11 @@ html, body { margin:0; height:100%; font-family: 'Oswald', sans-serif; }
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 
-<!-- Map JS -->
+<!-- Your map.js -->
 <script src="map.js"></script>
 
+<!-- Panel + Sidebar JS -->
 <script>
-// Toggle panels
 function togglePanel(id){
   document.getElementById(id).classList.toggle('collapsed');
 }
