@@ -2,180 +2,253 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Incident Tracker - Homepage</title>
+<title>Incident Tracker Homepage</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Bebas+Neue&family=Oswald&display=swap" rel="stylesheet">
 
 <style>
-/* ===== Reset & base ===== */
-* {
-  box-sizing: border-box;
+html, body {
   margin: 0;
   padding: 0;
-}
-
-body {
-  font-family: 'Oswald', sans-serif;
+  font-family: Oswald, sans-serif;
   background: #f9f9f9;
-  color: #222;
+  color: #111;
 }
 
-/* ===== Hero Section ===== */
-.hero {
-  text-align: center;
-  padding: 80px 20px 60px;
-  background: linear-gradient(135deg,#e03b3b,#f7e769);
-  color: white;
-  border-radius: 0 0 40px 40px;
+/* =========================
+   SIDEBAR
+   ========================= */
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background: #fff;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.25);
+  transform: translateX(-250px);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  font-family: 'Fjalla One', sans-serif;
 }
 
-.hero h1 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 56px;
-  margin-bottom: 15px;
+#sidebar-content {
+  padding: 20px 25px;
 }
 
-.hero p {
-  font-size: 20px;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* ===== Navigation Buttons ===== */
-.homepage-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin: 40px 0;
-}
-
-.btn {
-  padding: 18px 36px;
-  background: #e03b3b;
-  color: white;
+#sidebar a {
+  display: block;
+  margin-bottom: 12px;
+  color: #000;
   text-decoration: none;
-  border-radius: 10px;
-  font-size: 20px;
-  font-family: 'Bebas Neue', sans-serif;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: 0.2s;
+  font-size: 18px;
 }
 
-.btn:hover {
-  background: #c70000;
-  transform: translateY(-3px);
-}
-
-/* ===== Stats Cards ===== */
-.stats-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-bottom: 50px;
-}
-
-.stat-card {
+#sidebar-handle {
+  position: fixed;
+  top: 20px;
+  left: 0;
+  width: 32px;
+  height: 42px;
   background: white;
-  padding: 30px 25px;
-  border-radius: 15px;
-  text-align: center;
-  min-width: 200px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  transition: 0.2s;
+  border-radius: 0 6px 6px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 0 6px rgba(0,0,0,0.3);
+  cursor: pointer;
+  font-size: 22px;
+  z-index: 1001;
+  transition: transform 0.3s ease;
 }
 
-.stat-card:hover {
-  transform: translateY(-5px);
+/* =========================
+   HOMEPAGE LAYOUT
+   ========================= */
+#main-content {
+  margin-left: 0;
+  padding: 60px 20px 20px 20px;
+  transition: margin-left 0.3s ease;
+  max-width: 900px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-.stat-card h2 {
-  font-size: 42px;
-  margin-bottom: 10px;
-  color: #e03b3b;
+.section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-.stat-card p {
-  font-size: 18px;
-  color: #555;
-}
-
-/* ===== This Month Section ===== */
-.this-month {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.this-month h2 {
+.section h2 {
+  margin-top: 0;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 38px;
-  margin-bottom: 20px;
-  color: #e03b3b;
+  font-size: 24px;
+  margin-bottom: 12px;
 }
 
-.this-month p {
-  font-size: 18px;
-  color: #555;
+.incident-item {
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #ddd;
 }
 
-/* ===== Footer ===== */
-footer {
-  text-align: center;
-  padding: 25px;
-  font-size: 14px;
-  color: #777;
-  border-top: 1px solid #ccc;
-  margin-top: 40px;
+.incident-item:last-child {
+  border-bottom: none;
 }
 
+.incident-item b {
+  display: block;
+  font-weight: 600;
+}
+
+.incident-item a {
+  color: blue;
+  text-decoration: underline;
+}
 </style>
 </head>
+
 <body>
 
-<!-- Hero -->
-<div class="hero">
-  <h1>Incident Tracker</h1>
-  <p>Track drone sightings, airspace incidents, and unusual activities in real time. Navigate through our map and calendar to see detailed reports for each day and location.</p>
-</div>
-
-<!-- Navigation -->
-<div class="homepage-buttons">
-  <a href="map.html" class="btn">🗺️ View Map</a>
-  <a href="calendar.html" class="btn">📅 View Calendar</a>
-</div>
-
-<!-- This Month at a Glance -->
-<div class="this-month">
-  <h2>This Month</h2>
-  <p>December 2025: 12 incidents reported across 9 countries.</p>
-</div>
-
-<!-- Incident Counter -->
-<div class="stats-container">
-  <div class="stat-card">
-    <h2>12</h2>
-    <p>Incidents this month</p>
+<div id="sidebar">
+  <div id="sidebar-content">
+    <a href="index.html">🏠 Homepage</a>
+    <a href="calendar.html">📅 Calendar</a>
+    <a href="map.html">🗺️ Map</a>
   </div>
-  <div class="stat-card">
-    <h2>9</h2>
-    <p>Countries affected</p>
+</div>
+<div id="sidebar-handle">&#9776;</div>
+
+<div id="main-content">
+  <div class="section" id="this-week">
+    <h2>This Week</h2>
+    <div id="this-week-list"><i>Loading...</i></div>
   </div>
-  <div class="stat-card">
-    <h2>1</h2>
-    <p>Incidents this week</p>
+
+  <div class="section" id="last-incident">
+    <h2>Last Incident</h2>
+    <div id="last-incident-info"><i>Loading...</i></div>
   </div>
-  <div class="stat-card">
-    <h2>24 Dec, Eastern Poland 🇵🇱</h2>
-    <p>Latest incident</p>
+
+  <div class="section" id="incident-counter">
+    <h2>Incident Counter</h2>
+    <div id="incident-counter-number"><i>Loading...</i></div>
   </div>
 </div>
 
-<!-- Footer -->
-<footer>
-  &copy; 2025 Incident Tracker • Built with ❤️
-</footer>
+<script>
+/* =========================
+   SIDEBAR LOGIC
+   ========================= */
+const sidebar = document.getElementById('sidebar');
+const handle = document.getElementById('sidebar-handle');
+const mainContent = document.getElementById('main-content');
+let sidebarOpen = false;
+
+handle.addEventListener('click', () => {
+  sidebarOpen = !sidebarOpen;
+  if(sidebarOpen){
+    sidebar.style.transform = 'translateX(0)';
+    handle.style.transform = 'translateX(250px)';
+    mainContent.style.marginLeft = '250px';
+  } else {
+    sidebar.style.transform = 'translateX(-250px)';
+    handle.style.transform = 'translateX(0)';
+    mainContent.style.marginLeft = '0';
+  }
+});
+
+/* =========================
+   INCIDENT DATA
+   ========================= */
+const incidentsData = {
+  '2025-12-24': [
+    {
+      country: "🟡 Gothenburg Landvetter Airport, Sweden 🇸🇪",
+      popupType: "Drone sighting / airport closure",
+      date: "24 Dec 2025, 17:41 - 21:30",
+      details: "One or more drones have been observed at the coast, close to the airport; air traffic resumed at around 21:30",
+      link: "https://www.reuters.com/world/traffic-halted-swedish-city-gothenburgs-airport-after-drone-sighting-daily-2025-11-06/"
+    }
+  ],
+  '2025-12-25': [
+    {
+      country: "🟠 Brussels Airport, Belgium 🇧🇪",
+      popupType: "Drone sighting / airspace closure",
+      date: "25 Dec 2025, 21:20 - 22:00",
+      details: "The airport was closed following a drone sighting over the airport",
+      link: "https://vrtnws.be/p.Pqn1MwxDy#bGl2ZWJsb2dfaXRlbV8xNzYyNDYyMDI5NDQw"
+    }
+  ]
+};
+
+/* =========================
+   UTILITY FUNCTIONS
+   ========================= */
+function formatIncidentItem(i){
+  return `
+    <div class="incident-item">
+      <b>${i.country} (<a href="${i.link}" target="_blank">source</a>)</b>
+      <b>Date:</b> ${i.date}
+      <b>Type:</b> ${i.popupType}
+      <b>Details:</b> ${i.details}
+    </div>
+  `;
+}
+
+function getMonday(d) {
+  d = new Date(d);
+  const day = d.getDay();
+  const diff = (day === 0 ? -6 : 1) - day; // adjust when Sunday
+  return new Date(d.setDate(d.getDate() + diff));
+}
+
+function getSunday(d) {
+  const monday = getMonday(new Date(d));
+  return new Date(monday.getTime() + 6*24*60*60*1000);
+}
+
+/* =========================
+   RENDER HOMEPAGE DATA
+   ========================= */
+function renderHomepage() {
+  const today = new Date();
+  const monday = getMonday(today);
+  const sunday = getSunday(today);
+
+  // This Week
+  const weekList = [];
+  for (const [dateStr, incidents] of Object.entries(incidentsData)) {
+    const d = new Date(dateStr);
+    if (d >= monday && d <= sunday) {
+      weekList.push(...incidents.map(formatIncidentItem));
+    }
+  }
+  document.getElementById('this-week-list').innerHTML = weekList.length ? weekList.join('') : '<i>No incidents this week</i>';
+
+  // Last Incident
+  const allDates = Object.keys(incidentsData).sort((a,b)=> new Date(b)-new Date(a));
+  if(allDates.length){
+    const latestDate = allDates[0];
+    const latestIncident = incidentsData[latestDate][incidentsData[latestDate].length-1];
+    document.getElementById('last-incident-info').innerHTML = `${latestIncident.date} – ${latestIncident.country}`;
+  } else {
+    document.getElementById('last-incident-info').innerHTML = '<i>No incidents recorded</i>';
+  }
+
+  // Incident Counter
+  let counter = 0;
+  for(const arr of Object.values(incidentsData)) counter += arr.length;
+  document.getElementById('incident-counter-number').textContent = counter;
+}
+
+renderHomepage();
+</script>
 
 </body>
 </html>
