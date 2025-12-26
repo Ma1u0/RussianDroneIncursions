@@ -11,24 +11,25 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"/>
 
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&family=Bebas+Neue&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&family=Bebas+Neue&family=Fjalla+One&display=swap" rel="stylesheet">
 
 <style>
 html, body { margin:0; height:100%; }
 
-/* Sidebar */
+/* ===== Sidebar ===== */
 #sidebar {
   position: fixed;
   top:0;
   left:0;
-  height:100%;
   width:250px;
-  background: rgba(255,255,255,0.97);
+  height:100%;
+  background: #fff;
   box-shadow: 2px 0 10px rgba(0,0,0,0.25);
   transform: translateX(-250px);
   transition: transform 0.3s ease;
   z-index:1001;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 20px; /* matches info.html */
 }
 
 #sidebar.sidebar-open { transform: translateX(0); }
@@ -39,18 +40,19 @@ html, body { margin:0; height:100%; }
 
 #sidebar-content a {
   display: block;
-  margin-bottom: 12px;
-  font-size: 18px;
-  color: #111;
+  margin-bottom: 14px;
+  font-size: 20px; /* matches info.html */
+  color: #000;
   text-decoration: none;
 }
 
+/* Sidebar toggle handle */
 #sidebar-handle {
   position: absolute;
-  right: -30px;
+  right: -32px;
   top: 20px;
-  width: 30px;
-  height: 40px;
+  width: 32px;
+  height: 42px;
   background: white;
   border-radius: 0 6px 6px 0;
   display: flex;
@@ -62,17 +64,17 @@ html, body { margin:0; height:100%; }
   z-index:1002;
 }
 
-/* Map fills viewport */
-#map { 
-  position:absolute; 
-  top:0; 
-  left:0; 
-  right:0; 
-  bottom:0; 
+/* ===== Map ===== */
+#map {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
   z-index:0;
 }
 
-/* Panels */
+/* ===== Panels ===== */
 .panel {
   position:absolute;
   background:white;
@@ -85,20 +87,19 @@ html, body { margin:0; height:100%; }
   display:flex;
   justify-content:space-between;
   padding:8px;
-  font-weight:bold;
-  background:#f0f0f0;
   font-family: 'Bebas Neue', sans-serif;
-  font-size:22px;
-  letter-spacing:1px;
+  font-size: 24px;
+  letter-spacing: 1px;
+  background:#f0f0f0;
 }
 
 .panel button { background:none; border:none; font-size:16px; cursor:pointer; }
 
 .panel-content {
-  padding:8px;
-  font-family: 'Inter', sans-serif;
-  font-size:14px;
-  line-height:1.4;
+  padding:10px;
+  font-family: 'Oswald', sans-serif;
+  font-size:18px;
+  line-height:1.5;
 }
 
 .collapsed .panel-content { display:none; }
@@ -107,29 +108,28 @@ html, body { margin:0; height:100%; }
 #filters { bottom:10px; right:10px; width:780px; }
 #filters.collapsed { width:120px; height:40px; }
 
-/* Sentence filter layout */
-#sentence-filters { display:flex; flex-wrap:wrap; gap:6px; align-items:center; font-size:14px; }
-#sentence-filters select { padding:4px 6px; }
+/* Filter layout */
+#sentence-filters { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+#sentence-filters select { padding:6px 8px; font-size:16px; }
 
 /* Legend */
 #legend { top:10px; right:10px; width:300px; }
 #legend.collapsed { width:150px; height:40px; }
-#legend.collapsed .panel-content { display:none; }
-.legend-row { margin-bottom:6px; }
+.legend-row { margin-bottom:8px; font-size:18px; font-family:'Oswald', sans-serif; }
 .legend-row img { width:26px; vertical-align:middle; margin-right:6px; }
 
-/* Restore default Leaflet popup styling */
+/* ===== Leaflet Popups ===== */
 .leaflet-popup-content {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: normal;
-  margin: 0;
-  padding: 0;
+  font-family: 'Oswald', sans-serif;
+  font-size:18px;
+  line-height:1.5;
+  margin:0;
+  padding:0;
 }
 
 .leaflet-popup-content b {
-  font-weight: bold;
-  font-size: inherit;
+  font-weight:bold;
+  font-size:20px;
 }
 </style>
 </head>
@@ -233,10 +233,10 @@ html, body { margin:0; height:100%; }
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 
-<!-- Your map.js -->
+<!-- Map JS -->
 <script src="map.js"></script>
 
-<!-- Panel + Sidebar JS -->
+<!-- Sidebar + Panel JS -->
 <script>
 function togglePanel(id){
   document.getElementById(id).classList.toggle('collapsed');
