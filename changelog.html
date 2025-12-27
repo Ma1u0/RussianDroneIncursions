@@ -1,16 +1,149 @@
-<h1>Changelog</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Changelog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<h2>v0.6 – Mobile & UI Improvements</h2>
-<ul>
-  <li>Improved mobile layout for map, calendar, and homepage</li>
-  <li>Sidebar behavior unified across all pages</li>
-  <li>Popup styling reverted to default Leaflet appearance</li>
-  <li>Info page clarifications added</li>
-</ul>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500&display=swap" rel="stylesheet">
 
-<h2>v0.5 – Data & Classification Updates</h2>
-<ul>
-  <li>Incident actor classification refined</li>
-  <li>New incidents added in Türkiye and Poland</li>
-  <li>Calendar icon indicators improved</li>
-</ul>
+<style>
+html, body {
+  margin: 0;
+  background: #f9f9f9;
+  font-family: 'Oswald', sans-serif;
+  color: #222;
+}
+
+/* ===== Layout ===== */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+
+/* ===== Header ===== */
+h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 48px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #555;
+  margin-bottom: 40px;
+}
+
+/* ===== Release blocks ===== */
+.release {
+  background: white;
+  border-radius: 14px;
+  padding: 25px 30px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.release-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.release-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+}
+
+.release-date {
+  font-size: 14px;
+  color: #777;
+}
+
+/* ===== Change list ===== */
+.release ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.release li {
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+/* ===== Tags ===== */
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  margin-right: 6px;
+  color: white;
+}
+
+.tag.ui { background: #e03b3b; }
+.tag.data { background: #f7a400; }
+.tag.mobile { background: #3b82f6; }
+.tag.meta { background: #22c55e; }
+
+/* ===== Mobile ===== */
+@media (max-width: 600px) {
+  h1 { font-size: 40px; }
+  .release { padding: 20px; }
+  .release-title { font-size: 24px; }
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <h1>Changelog</h1>
+  <p class="subtitle">Major updates, feature additions, and structural changes to the project.</p>
+
+  <!-- v0.7 -->
+  <div class="release">
+    <div class="release-header">
+      <div class="release-title">v0.7 – Mobile & UI Refinements</div>
+      <div class="release-date">January 2026</div>
+    </div>
+    <ul>
+      <li><span class="tag mobile">mobile</span>Improved mobile layout across map, calendar, and homepage</li>
+      <li><span class="tag ui">ui</span>Calendar header layout refined for small screens</li>
+      <li><span class="tag ui">ui</span>Popup styling reverted to default Leaflet appearance</li>
+      <li><span class="tag meta">meta</span>Added Changelog page</li>
+    </ul>
+  </div>
+
+  <!-- v0.6 -->
+  <div class="release">
+    <div class="release-header">
+      <div class="release-title">v0.6 – Classification & Coverage Updates</div>
+      <div class="release-date">December 2025</div>
+    </div>
+    <ul>
+      <li><span class="tag data">data</span>Refined actor classification logic</li>
+      <li><span class="tag data">data</span>Added multiple incidents in Türkiye and Poland</li>
+      <li><span class="tag meta">meta</span>Info page coverage clarification</li>
+    </ul>
+  </div>
+
+  <!-- v0.5 -->
+  <div class="release">
+    <div class="release-header">
+      <div class="release-title">v0.5 – Initial Public Version</div>
+      <div class="release-date">November 2025</div>
+    </div>
+    <ul>
+      <li>Interactive map with clustering</li>
+      <li>Incident calendar overview</li>
+      <li>Sidebar navigation and filters</li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>
